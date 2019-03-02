@@ -62,18 +62,23 @@ exports.createPages = ({ graphql, actions}) => {
         /* Iterate needed pages and create them. */
         const countImagesPerPage = 20
         const countPages = Math.ceil(images.length / countImagesPerPage)
-        for (var pageNum=1; pageNum<=countPages; pageNum++) {
+        for (var currentPage=1; currentPage<=countPages; currentPage++) {
 
             /* Collect images needed for this page. */
-            const startIndexInclusive = countImagesPerPage * (pageNum - 1)
+            const startIndexInclusive = countImagesPerPage * (currentPage - 1)
             const endIndexExclusive = startIndexInclusive + countImagesPerPage
             const pageImages = images.slice(startIndexInclusive, endIndexExclusive)
 
             /* Combine all data needed to construct this page. */
             const pageData = {
-                path: `/${pageNum > 1 ? pageNum : ""}`, /* Resolve paths "/", "/2", "/3", ... */
+                path: `/${currentPage > 1 ? currentPage : ""}`, /* Resolve paths "/", "/2", "/3", ... */
                 component: paginatedPageTemplate,
-                context: { initialImages: pageImages } /* If you need to pass additional data, you can pass it inside the context object. */
+                context: {
+                     /* If you need to pass additional data, you can pass it inside this context object. */
+                    initialImages: pageImages,
+                    currentPage: currentPage,
+                    countPages: countPages
+                }
             }
 
             /* Create normal pages (for pagination) and corresponding JSON (for infinite scroll). */

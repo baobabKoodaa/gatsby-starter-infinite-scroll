@@ -1,25 +1,29 @@
 import React from "react"
-import Layout from "../components/layout.js";
-import SEO from "../components/seo.js";
+import Layout from "../components/layout.js"
+import SEO from "../components/seo.js"
+import Pagination from "../components/pagination.js"
 
 class PaginatedPageTemplate extends React.Component {
 
+    
+
     render() {
-        console.log(this.props.pageContext.initialImages)
-        const items = this.props.pageContext.initialImages
+        const { pageContext } = this.props
+        const items = pageContext.initialImages
         return (
             <Layout>
                 <SEO title="Home" />
                 <h1>Infinite scroll</h1>
+
                 {items.map((item, index) => {
                     return (
-                        <a href={item.l} target="_blank" rel="noopener noreferrer">
-                            <img src={item.s} alt="" key={index}></img>
+                        <a href={item.l} target="_blank" rel="noopener noreferrer" key={index}>
+                            <img src={item.s} alt=""></img>
                         </a>
                     )
                 })}
 
-                
+                <Pagination currentPage={pageContext.currentPage} countPages={pageContext.countPages} />
             </Layout>
         )
     }
