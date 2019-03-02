@@ -5,6 +5,21 @@ const fs = require('fs');
 exports.createPages = ({ graphql, actions}) => {
     const { createPage } = actions
 
+    /* 
+     * There are a few local images in this repo to show you how to fetch images with GraphQL.
+     * In order to keep the repo small, the rest of the images are fetched from Unsplash by the client's
+     * browser. Their URLs are stored in a text file. You don't want to fetch images like that in production.
+     */
+    var rawRemoteUrls = JSON.parse(fs.readFileSync('content/images/remote_image_urls.json', 'utf8'));
+    const remoteImages = rawRemoteUrls.map(url => {
+        const resizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop'
+        return {
+            "l": url,
+            "s": url+resizeParams
+        }
+    })
+
+    /* In production you should fetch your images with GraphQL like this: */
     return graphql(`
         {
             localImages: allFile(
@@ -32,11 +47,6 @@ exports.createPages = ({ graphql, actions}) => {
             throw result.errors
         }
 
-        /* 
-         * There are a few local images in this repo to show you how to fetch images with GraphQL.
-         * In order to keep the repo small, the rest of the images are fetched from Unsplash by the client's
-         * browser. Their URLs are stored in a text file. You don't want to fetch images like that in production.
-         */
         const localImages = result.data.localImages.edges.map(edge => {
             return {
                 "l": edge.node.childImageSharp.fluid.originalImg,
@@ -44,35 +54,12 @@ exports.createPages = ({ graphql, actions}) => {
             }
         })
 
-        /*
-        const remoteImages = []
-        for (var i=1; i<=1000; i++) {
-            remoteImages.push({
-                "l": `https://picsum.photos/200/200?image=${i}`,
-                "s": `https://picsum.photos/200/200?image=${i}`
-            })
-        }*/
-
-        var rawRemoteUrls = JSON.parse(fs.readFileSync('content/images/remote_image_urls.json', 'utf8'));
-        const remoteImages = rawRemoteUrls.map(url => {
-            const resizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop'
-            return {
-                "l": url,
-                "s": url+resizeParams
-            }
-        })
-
         const images = [...localImages, ...remoteImages]
 
-
-        /*
-         * Gatsby will use this template to render the paginated pages (including the initial page for infinite scroll).
-         */
+        /* Gatsby will use this template to render the paginated pages (including the initial page for infinite scroll). */
         const paginatedPageTemplate = path.resolve(`src/templates/paginatedPageTemplate.js`)
 
-        /*
-         * Create normal pages (for pagination) and corresponding JSON (for infinite scroll).
-         */
+        /* Iterate needed pages and create them. */
         const countImagesPerPage = 20
         const countPages = Math.ceil(images.length / countImagesPerPage)
         for (var pageNum=1; pageNum<=countPages; pageNum++) {
@@ -84,16 +71,16 @@ exports.createPages = ({ graphql, actions}) => {
 
             /* Combine all data needed to construct this page. */
             const pageData = {
-                path: `/${pageNum > 1 ? pageNum : ""}`, /* Becomes "/", "/2", "/3", ... */
+                path: `/${pageNum > 1 ? pageNum : ""}`, /* Resolve paths "/", "/2", "/3", ... */
                 component: paginatedPageTemplate,
                 context: { initialImages: pageImages } /* If you need to pass additional data, you can pass it inside the context object. */
             }
 
-            console.log("Creating page")
-
+            /* Create normal pages (for pagination) and corresponding JSON (for infinite scroll). */
             createJSON(pageData)
             createPage(pageData)
         }
+        console.log(`Created ${countPages} pages of paginated content.`)
 
 
     })
