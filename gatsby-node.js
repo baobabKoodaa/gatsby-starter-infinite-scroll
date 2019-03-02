@@ -1,4 +1,6 @@
 const path = require(`path`)
+const fetch = require('node-fetch');
+const fs = require('fs');
 
 exports.createPages = ({ graphql, actions}) => {
     const { createPage } = actions
@@ -35,12 +37,33 @@ exports.createPages = ({ graphql, actions}) => {
          * In order to keep the repo small, the rest of the images are fetched from Unsplash by the client's
          * browser. Their URLs are stored in a text file. You don't want to fetch images like that in production.
          */
-        const images = result.data.localImages.edges.map(edge => {
+        const localImages = result.data.localImages.edges.map(edge => {
             return {
                 "l": edge.node.childImageSharp.fluid.originalImg,
                 "s": edge.node.childImageSharp.fixed.src
             }
         })
+
+        /*
+        const remoteImages = []
+        for (var i=1; i<=1000; i++) {
+            remoteImages.push({
+                "l": `https://picsum.photos/200/200?image=${i}`,
+                "s": `https://picsum.photos/200/200?image=${i}`
+            })
+        }*/
+
+        var rawRemoteUrls = JSON.parse(fs.readFileSync('content/images/remote_image_urls.json', 'utf8'));
+        const remoteImages = rawRemoteUrls.map(url => {
+            const resizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop'
+            return {
+                "l": url,
+                "s": url+resizeParams
+            }
+        })
+
+        const images = [...localImages, ...remoteImages]
+
 
         /*
          * Gatsby will use this template to render the paginated pages (including the initial page for infinite scroll).
@@ -79,3 +102,4 @@ exports.createPages = ({ graphql, actions}) => {
 function createJSON(pageData) {
 
 }
+
