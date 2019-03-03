@@ -14,7 +14,7 @@ const fetchUnsplashImageUrls = async () => {
     
     write("[")
     const uniqueUrls = new Set()
-    var goalCount = 1000
+    var goalCount = 10000
     while (uniqueUrls.size < goalCount) {
         const keyword = keywords[keyword_index]
         keyword_index = (keyword_index + 1) % keywords.length
