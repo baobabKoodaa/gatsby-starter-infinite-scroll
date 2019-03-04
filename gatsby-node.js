@@ -1,5 +1,4 @@
 const path = require(`path`)
-const fetch = require('node-fetch');
 const fs = require('fs');
 
 exports.createPages = ({ graphql, actions}) => {
@@ -76,7 +75,7 @@ exports.createPages = ({ graphql, actions}) => {
                 component: paginatedPageTemplate,
                 context: {
                      /* If you need to pass additional data, you can pass it inside this context object. */
-                    initialImages: pageImages,
+                    pageImages: pageImages,
                     currentPage: currentPage,
                     countPages: countPages
                 }
@@ -99,7 +98,7 @@ function createJSON(pageData) {
       fs.mkdirSync(dir);
     }
     const filePath = dir+"index"+pathSuffix+".json";
-    const dataToSave = JSON.stringify(pageData.context.initialImages);
+    const dataToSave = JSON.stringify(pageData.context.pageImages);
     fs.writeFile(filePath, dataToSave, function(err) {
       if(err) {
         return console.log(err);
