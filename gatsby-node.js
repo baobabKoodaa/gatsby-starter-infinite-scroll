@@ -63,6 +63,7 @@ exports.createPages = ({ graphql, actions}) => {
         const countImagesPerPage = 20
         const countPages = Math.ceil(images.length / countImagesPerPage)
         for (var currentPage=1; currentPage<=countPages; currentPage++) {
+            const pathSuffix = (currentPage>1? currentPage : "") /* To create paths "/", "/2", "/3", ... */
 
             /* Collect images needed for this page. */
             const startIndexInclusive = countImagesPerPage * (currentPage - 1)
@@ -71,7 +72,7 @@ exports.createPages = ({ graphql, actions}) => {
 
             /* Combine all data needed to construct this page. */
             const pageData = {
-                path: `/${currentPage > 1 ? currentPage : ""}`, /* Resolve paths "/", "/2", "/3", ... */
+                path: `/${pathSuffix}`, 
                 component: paginatedPageTemplate,
                 context: {
                      /* If you need to pass additional data, you can pass it inside this context object. */
@@ -92,6 +93,16 @@ exports.createPages = ({ graphql, actions}) => {
 }
 
 function createJSON(pageData) {
-
+    const pathSuffix = pageData.path.substring(1)
+    const dir = "public/paginationJson/"
+    if (!fs.existsSync(dir)){
+      fs.mkdirSync(dir);
+    }
+    const filePath = dir+"index"+pathSuffix+".json";
+    const dataToSave = JSON.stringify(pageData.context.initialImages);
+    fs.writeFile(filePath, dataToSave, function(err) {
+      if(err) {
+        return console.log(err);
+      }
+    }); 
 }
-
