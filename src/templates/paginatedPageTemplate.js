@@ -13,7 +13,6 @@ class PaginatedPageTemplate extends React.Component {
         return (
             <Layout>
                 <SEO title="Home" />
-                <h1>Infinite scroll</h1>
 
                 {items.map((item, index) => {
                     return (

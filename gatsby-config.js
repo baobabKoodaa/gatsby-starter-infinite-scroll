@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby Starter Infinite Scroll`,
+    description: `Need infinite scroll or pagination in your Gatsby project? This starter is for you.`,
+    author: `baobabKoodaa`,
   },
   plugins: [
     {
