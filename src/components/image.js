@@ -22,7 +22,7 @@ const Image = props => {
                         width: 100%;
                         display: block;
                         border-radius: 10px;
-                        border: 1px solid ghostwhite;
+                        border: 1px solid gray;
                     }
 
                     .img-container {

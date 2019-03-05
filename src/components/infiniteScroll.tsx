@@ -70,7 +70,7 @@ export class InfiniteScroll extends React.Component<InfiniteScrollProps, {}> {
   }
 
   componentDidUpdate() {
-     // This fixes edge case where initial content is not enough to enable scrolling on a large screen.
+    // This fixes edge case where initial content is not enough to enable scrolling on a large screen.
     this.checkWindowScroll();
   }
 

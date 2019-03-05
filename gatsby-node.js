@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions}) => {
         const paginatedPageTemplate = path.resolve(`src/templates/paginatedPageTemplate.js`)
 
         /* Iterate needed pages and create them. */
-        const countImagesPerPage = 4
+        const countImagesPerPage = 30
         const countPages = Math.ceil(images.length / countImagesPerPage)
         for (var currentPage=1; currentPage<=countPages; currentPage++) {
             const pathSuffix = (currentPage>1? currentPage : "") /* To create paths "/", "/2", "/3", ... */
@@ -85,7 +85,7 @@ exports.createPages = ({ graphql, actions}) => {
             createJSON(pageData)
             createPage(pageData)
         }
-        console.log(`Created ${countPages} pages of paginated content.`)
+        console.log(`\nCreated ${countPages} pages of paginated content.`)
 
 
     })
