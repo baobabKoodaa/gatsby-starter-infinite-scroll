@@ -32,11 +32,6 @@ class PaginatedPageTemplate extends React.Component {
         this.setState(state => ({
           isLoading: false, /* Allow triggering infinite scroll load */
         }))
-    
-        /* If you want to do paginated fetch for first items, uncomment the following line: */
-        this.loadMore()
-    
-        // TODO fetch more in case everything fits to users' screen without scrolling?
     }
 
     loadMore = () => {

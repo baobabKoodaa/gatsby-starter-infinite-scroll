@@ -1,6 +1,6 @@
-/* This file is copied from https://github.com/jaredpalmer/react-simple-infinite-scroll
+/* This file is forked from https://github.com/jaredpalmer/react-simple-infinite-scroll
    Authors: Jared Palmer, Pablo Garcia
-   & Thanks to Paolo Moretti for pointing out a configuration issue!
+   Modified by Baobab Koodaa.
 */
 
 import * as React from 'react';
@@ -67,6 +67,11 @@ export class InfiniteScroll extends React.Component<InfiniteScrollProps, {}> {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scrollHandler);
     window.removeEventListener('resize', this.resizeHandler);
+  }
+
+  componentDidUpdate() {
+     // This fixes edge case where initial content is not enough to enable scrolling on a large screen.
+    this.checkWindowScroll();
   }
 
   checkWindowScroll = () => {
