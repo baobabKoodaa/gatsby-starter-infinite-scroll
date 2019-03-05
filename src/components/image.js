@@ -23,6 +23,12 @@ const Image = props => {
                         display: block;
                         border-radius: 10px;
                         border: 1px solid gray;
+                        transition: 0.2s ease-in-out;
+
+                        :hover {
+                            opacity: 0.4;
+                            transform: scale(1.1);
+                        }
                     }
 
                     .img-container {
@@ -31,6 +37,7 @@ const Image = props => {
                         background:#EEE;
                         border-radius: 10px;
                         border: 1px solid ghostwhite;
+                        overflow: hidden;
                     }
                 `}
             </style>
