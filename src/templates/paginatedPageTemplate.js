@@ -6,6 +6,7 @@ import { InfiniteScroll } from "../components/infiniteScroll.tsx"
 import { FaCog } from "react-icons/fa"
 import theme from "../theme.yaml"
 import Image from "../components/image.js"
+import TrafficLight from "../components/trafficlight.js"
 
 /** Template for "home" page with infinite scroll and fallback to pagination. */
 class PaginatedPageTemplate extends React.Component {
@@ -25,7 +26,17 @@ class PaginatedPageTemplate extends React.Component {
         /*
          *  cursor represents next page which infinite scroll should fetch
          */
-        cursor: this.props.pageContext.currentPage+1
+        cursor: this.props.pageContext.currentPage+1,
+        /*
+         *  useInfiniteScroll to toggle between pagination and infinite scroll for this demo & as fallback in case of error.
+         *  The case where "location state" exists is when we navigated to this page through a pagination link.
+         */
+        useInfiniteScroll: (this.props.location.state && "useInfiniteScroll" in this.props.location.state ? this.props.location.state.useInfiniteScroll : true)
+    }
+
+    constructor(props) {
+        super(props)
+        this.toggle = this.toggle.bind(this)
     }
 
     componentDidMount() {
@@ -55,21 +66,44 @@ class PaginatedPageTemplate extends React.Component {
               })
             }
         )
-      }
+    }
+
+    toggle(useInfiniteScroll) {
+        if (useInfiniteScroll) {
+            this.setState({
+                useInfiniteScroll: true
+            })
+        } else {
+            /** When we toggle back to pagination, reset items and cursor. */
+            this.setState({
+                useInfiniteScroll: false,
+                items: this.props.pageContext.pageImages,
+                cursor: this.props.pageContext.currentPage+1,
+            })
+        }
+    }
     
 
     render() {
         const { pageContext } = this.props
+        const paginationData = {
+            currentPage: pageContext.currentPage,
+            countPages: pageContext.countPages,
+            useInfiniteScroll: this.state.useInfiniteScroll
+        }
         return (
             <Layout>
                 <SEO title="Home" />
+
+                {/* Traffic Lights to toggle between Infinite Scroll and Pagination. */}
+                <TrafficLight onClick={this.toggle} green={this.state.useInfiniteScroll} />
 
                 {/* Infinite Scroll (and initial items in case of Pagination). */}
                 <InfiniteScroll
                     throttle={100}
                     threshold={900}
                     isLoading={this.state.isLoading}
-                    hasMore={this.state.cursor <= pageContext.countPages}
+                    hasMore={this.state.cursor <= pageContext.countPages && this.state.useInfiniteScroll}
                     onLoadMore={this.loadMore}
                 >
                     <div style={{
@@ -93,12 +127,20 @@ class PaginatedPageTemplate extends React.Component {
                 )}
 
                 {/* Fallback to Pagination for non JS users. */} 
-                <noscript>
-                    <style> 
-                        {`.spinner { display: none !important; }`}
-                    </style>
-                    <Pagination currentPage={pageContext.currentPage} countPages={pageContext.countPages} />
-                </noscript>
+                {this.state.useInfiniteScroll && (
+                    <noscript>
+                        <style> 
+                            {`.spinner { display: none !important; }`}
+                        </style>
+                        <Pagination paginationData={paginationData} />
+                        <h4><center>Infinite Scroll does not work without JavaScript.</center></h4>
+                    </noscript>
+                )}
+
+                {/* Fallback to Pagination on toggle (for demo) and also on error. */}
+                {!this.state.useInfiniteScroll && (
+                    <Pagination paginationData={paginationData} />
+                )}
 
                 <style jsx>{`
                     @keyframes spinner {
@@ -108,9 +150,11 @@ class PaginatedPageTemplate extends React.Component {
                         margin-top: 40px;
                         font-size: 60px;
                         text-align: center;
+                        display: ${this.state.useInfiniteScroll ? "block" : "none" };
+
                         :global(svg) {
-                        fill: ${theme.color.brand.primaryLight};
-                        animation: spinner 3s linear infinite;
+                            fill: ${theme.color.brand.primaryLight};
+                            animation: spinner 3s linear infinite;
                         }
                         
                     }

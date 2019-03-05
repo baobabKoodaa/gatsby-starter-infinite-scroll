@@ -6,7 +6,7 @@ import theme from "../theme.yaml"
 
 const Pagination = props => {
 
-    const { currentPage, countPages } = props;
+    const { currentPage, countPages, useInfiniteScroll } = props.paginationData;
     const isFirst = currentPage === 1 || !currentPage;
     const isLast = currentPage === countPages;
     const prevPage = "/" + (currentPage - 1 > 1 ? (currentPage - 1) : "");
@@ -21,7 +21,7 @@ const Pagination = props => {
 
                 {/* "Prev" arrow */}
                 {!isFirst && (
-                    <Link to={prevPage} rel="prev" style={verticalAlignment}>
+                    <Link to={prevPage} rel="prev" style={verticalAlignment}  state={{ useInfiniteScroll: useInfiniteScroll }}>
                         <span className="prev-arrow">
                             <FaArrowLeft/>
                         </span>
@@ -48,6 +48,7 @@ const Pagination = props => {
                                             lineHeight: "30px",
                                             verticalAlign: "middle"
                                         }}
+                                        state={{ useInfiniteScroll: useInfiniteScroll }}
                                         className="pagination-numbers"
                                     >
                                         {num}
@@ -60,7 +61,7 @@ const Pagination = props => {
 
                 {/* "Next" arrow */}
                 {!isLast && (
-                    <Link to={nextPage} rel="next" style={verticalAlignment}>
+                    <Link to={nextPage} rel="next" style={verticalAlignment} state={{ useInfiniteScroll: useInfiniteScroll }}>
                         <span className="next-arrow">
                             <FaArrowRight/>
                         </span>
@@ -160,8 +161,7 @@ function selectRelevantPageLinks(currentPage, countPages) {
 }
 
 Pagination.propTypes = {
-    currentPage: PropTypes.number.isRequired,
-    countPages: PropTypes.number.isRequired
+    paginationData: PropTypes.object.isRequired
 };
 
 export default Pagination;

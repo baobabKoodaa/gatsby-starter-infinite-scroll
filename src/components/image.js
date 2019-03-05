@@ -24,6 +24,7 @@ const Image = props => {
                         border-radius: 10px;
                         border: 1px solid gray;
                         transition: 0.2s ease-in-out;
+                        z-index: 1;
 
                         :hover {
                             opacity: 0.4;
@@ -38,6 +39,7 @@ const Image = props => {
                         border-radius: 10px;
                         border: 1px solid ghostwhite;
                         overflow: hidden;
+                        z-index: 1;
                     }
                 `}
             </style>
