@@ -34,7 +34,7 @@ class PaginatedPageTemplate extends React.Component {
         }))
     
         /* If you want to do paginated fetch for first items, uncomment the following line: */
-        // this.loadMore()
+        this.loadMore()
     
         // TODO fetch more in case everything fits to users' screen without scrolling?
     }
@@ -50,6 +50,7 @@ class PaginatedPageTemplate extends React.Component {
                 cursor: state.cursor+1, // Update which page should be fetched next
                 isLoading: false // Loading is complete so a new load can be triggered.
               }))
+              console.log("Showing " + this.state.items.length + " images.")
             },
             error => {
               this.setState({
@@ -71,18 +72,21 @@ class PaginatedPageTemplate extends React.Component {
                 {/* Infinite Scroll (and initial items in case of Pagination). */}
                 <InfiniteScroll
                     throttle={100}
-                    threshold={300}
+                    threshold={900}
                     isLoading={this.state.isLoading}
                     hasMore={this.state.cursor <= pageContext.countPages}
                     onLoadMore={this.loadMore}
                 >
-                    {this.state.items.map((item, index) => {
-                        return (
-                            <a href={item.l} target="_blank" rel="noopener noreferrer" key={index}>
-                                <img src={item.s} alt=""></img>
-                            </a>
-                        )
-                    })}
+                    <div style={{
+                        flexWrap: "wrap",
+                        display: "flex",
+                        maxWidth: "100%",
+                        flexDirection: "row",
+                        justifyContent: "center"
+                    }}>
+                        {this.state.items.map((item, index) => <Image item={item} key={index}/> )}
+                    </div>
+                    
                 </InfiniteScroll>
 
 
