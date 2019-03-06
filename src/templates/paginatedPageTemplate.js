@@ -45,6 +45,10 @@ class PaginatedPageTemplate extends React.Component {
         }))
     }
 
+    componentDidUpdate() {
+        console.log("Showing " + this.state.items.length + " images.")
+    }
+
     loadMore = () => {
         this.setState({ isLoading: true, error: undefined })
         fetch(`/paginationJson/index${this.state.cursor}.json`)
@@ -56,7 +60,6 @@ class PaginatedPageTemplate extends React.Component {
                 cursor: state.cursor+1, // Update which page should be fetched next
                 isLoading: false // Loading is complete so a new load can be triggered.
               }))
-              console.log("Showing " + this.state.items.length + " images.")
             },
             error => {
               this.setState({
@@ -68,13 +71,17 @@ class PaginatedPageTemplate extends React.Component {
         )
     }
 
+    /** This exists to demo toggling. You will not need this in production. */
     toggle(useInfiniteScroll) {
         if (useInfiniteScroll) {
+            /* When we toggle back to infinite scroll, adjust scroll position. Otherwise we might load 1000s of items at once. */
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            window.scrollTo(0, scrollTop-1);
             this.setState({
                 useInfiniteScroll: true
             })
         } else {
-            /** When we toggle back to pagination, reset items and cursor. */
+            /* When we toggle back to pagination, reset items and cursor. */
             this.setState({
                 useInfiniteScroll: false,
                 items: this.props.pageContext.pageImages,

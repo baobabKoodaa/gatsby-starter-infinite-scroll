@@ -90,6 +90,7 @@ const Pagination = props => {
                     justify-content: center;
                     padding: ${theme.space.l} ${theme.space.l} ${theme.space.l};
                     margin: ${theme.space.stack.l};
+                    margin-bottom: 0;
 
                     :global(a:nth-child(2)) {
                         margin: 0;
