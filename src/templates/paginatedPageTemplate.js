@@ -65,7 +65,7 @@ class PaginatedPageTemplate extends React.Component {
               this.setState({
                 isLoading: false,
                 error,
-                // TOOD: maybe fallback to pagination on error, too?
+                useInfiniteScroll: false // Fallback to Pagination on error.
               })
             }
         )
