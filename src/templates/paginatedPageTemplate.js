@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import Pagination from "../components/pagination.js"
@@ -98,6 +99,8 @@ class PaginatedPageTemplate extends React.Component {
             countPages: pageContext.countPages,
             useInfiniteScroll: this.state.useInfiniteScroll
         }
+        const hasMore = (this.state.cursor <= pageContext.countPages && this.state.useInfiniteScroll)
+
         return (
             <Layout>
                 <SEO title="Home" />
@@ -105,14 +108,16 @@ class PaginatedPageTemplate extends React.Component {
                 {/* Traffic Lights to toggle between Infinite Scroll and Pagination. */}
                 <TrafficLight onClick={this.toggle} green={this.state.useInfiniteScroll} />
 
-                {/* Infinite Scroll (and initial items in case of Pagination). */}
+                {/* Infinite Scroll */}
                 <InfiniteScroll
                     throttle={100}
                     threshold={900}
                     isLoading={this.state.isLoading}
-                    hasMore={this.state.cursor <= pageContext.countPages && this.state.useInfiniteScroll}
+                    hasMore={hasMore}
                     onLoadMore={this.loadMore}
                 >
+
+                    {/* Currently visible items (given as a child element for inf. scroll) */}
                     <div style={{
                         flexWrap: "wrap",
                         display: "flex",
@@ -124,6 +129,21 @@ class PaginatedPageTemplate extends React.Component {
                     </div>
                     
                 </InfiniteScroll>
+
+                {/* Notification for demo purposes. */}
+                {this.state.useInfiniteScroll && !hasMore && !this.state.isLoading && (
+                    <div style={{ paddingTop: "40px"}}>
+                        <h4>
+                        <center>
+                            Congrats! You scrolled through all
+                            {" "+this.state.items.length+" "}
+                            items starting from page 
+                            {" "+this.props.pageContext.currentPage}.
+                            Go to page <Link to="/">one</Link>?
+                        </center>
+                        </h4>
+                    </div>
+                )}
 
 
                 {/* Show loading spinner if user is able to scroll to bottom. */}
