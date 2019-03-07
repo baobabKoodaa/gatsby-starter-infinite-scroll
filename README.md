@@ -29,8 +29,9 @@ If you run into any difficulty, I will be happy to help.
 
 ## 🎓 Attribution
 
-- Photos are from [Unsplash](https://unsplash.com). Unfortunately I couldn't get photographer attribution, because their main API is rate limited, and the non limited API (source.unsplash.com) only gave me photos.
-- Infinite scroll uses some code from [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll).
-- Traffic lights are modified from work by Azik Samarkandiy.
+- Photos are from [Unsplash](https://unsplash.com). Unfortunately I couldn't get photographer attribution, because their main API is rate limited, and the non limited API (source.unsplash.com) only gave me photos. If you can help me get photographer attribution, that would be awesome!
+- Infinite scroll uses some code from Jared Palmer's [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll).
+- Traffic lights CSS graphics are modified from work by Azik Samarkandiy.
+- Loading spinner uses icon from FontAwesome.
 
 I would love to see what you build with this. You can [drop me a message](https://blog.baobab.fi/contact) or star this repo.
