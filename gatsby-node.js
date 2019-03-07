@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions}) => {
         const paginatedPageTemplate = path.resolve(`src/templates/paginatedPageTemplate.js`)
 
         /* Iterate needed pages and create them. */
-        const countImagesPerPage = 30
+        const countImagesPerPage = 50
         const countPages = Math.ceil(images.length / countImagesPerPage)
         for (var currentPage=1; currentPage<=countPages; currentPage++) {
             const pathSuffix = (currentPage>1? currentPage : "") /* To create paths "/", "/2", "/3", ... */
