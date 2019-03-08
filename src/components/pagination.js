@@ -129,21 +129,20 @@ function selectRelevantPageLinks(currentPage, countPages) {
             visiblePageNumbers.push(i)
         }
     } else {
-        /* Always show beginning, current, end, and around those spots. */
-        if (currentPage <= 6) {
+        /* Always show beginning, end, current, and around current. */
+        if (currentPage <= 5) {
             /* If beginning and current are not too far, we don't want to "dot dot" between them. */
             for (let i=1; i<currentPage; i++) {
                 visiblePageNumbers.push(i)
             }
         } else {
             visiblePageNumbers.push(1)
-            visiblePageNumbers.push(2)
             visiblePageNumbers.push("dots-left-half")
             visiblePageNumbers.push(currentPage-2)
             visiblePageNumbers.push(currentPage-1)
         }
         visiblePageNumbers.push(currentPage)
-        if (currentPage >= countPages-5) {
+        if (currentPage >= countPages-4) {
             /* If current and end are not too far, we don't want to "dot dot" between them. */
             for (let i=currentPage+1; i<countPages; i++) {
                 visiblePageNumbers.push(i)
@@ -152,7 +151,6 @@ function selectRelevantPageLinks(currentPage, countPages) {
             visiblePageNumbers.push(currentPage+1)
             visiblePageNumbers.push(currentPage+2)
             visiblePageNumbers.push("dots-right-half")
-            visiblePageNumbers.push(countPages-1)
         }
         if (currentPage !== countPages) {
             visiblePageNumbers.push(countPages)
