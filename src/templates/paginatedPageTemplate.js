@@ -6,7 +6,7 @@ import Pagination from "../components/pagination.js"
 import { InfiniteScroll } from "../components/infiniteScroll.tsx"
 import { FaCog } from "react-icons/fa"
 import theme from "../theme.yaml"
-import Image from "../components/image.js"
+import Grid from "../components/grid.js"
 import TrafficLight from "../components/trafficlight.js"
 
 /** Template for "home" page with infinite scroll and fallback to pagination. */
@@ -118,15 +118,7 @@ class PaginatedPageTemplate extends React.Component {
                 >
 
                     {/* Currently visible items (given as a child element for inf. scroll) */}
-                    <div style={{
-                        flexWrap: "wrap",
-                        display: "flex",
-                        maxWidth: "100%",
-                        flexDirection: "row",
-                        justifyContent: "center"
-                    }}>
-                        {this.state.items.map((item, index) => <Image item={item} key={index}/> )}
-                    </div>
+                    <Grid items={this.state.items} />
                     
                 </InfiniteScroll>
 
@@ -146,7 +138,7 @@ class PaginatedPageTemplate extends React.Component {
                 )}
 
 
-                {/* Show loading spinner if user is able to scroll to bottom. */}
+                {/* Loading spinner. */}
                 {this.state.isLoading && (
                     <div className="spinner">
                         <FaCog/>

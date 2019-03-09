@@ -31,6 +31,7 @@ If you run into any difficulty, I will be happy to help.
 
 - Photos are from [Unsplash](https://unsplash.com). Unfortunately I couldn't get photographer attribution, because their main API is rate limited, and the non limited API (source.unsplash.com) only gave me photos. If you can help me get photographer attribution, that would be awesome!
 - Infinite scroll uses some code from Jared Palmer's [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll).
+- Image layout CSS Grid is modified from work by [LekoArts](https://www.lekoarts.de/).
 - Traffic lights CSS graphics are modified from work by Azik Samarkandiy.
 - Loading spinner uses icon from FontAwesome.
 

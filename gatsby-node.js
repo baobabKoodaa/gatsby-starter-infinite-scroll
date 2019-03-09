@@ -11,7 +11,7 @@ exports.createPages = ({ graphql, actions}) => {
      */
     var rawRemoteUrls = JSON.parse(fs.readFileSync('content/images/remote_image_urls.json', 'utf8'));
     const remoteImages = rawRemoteUrls.map(url => {
-        const resizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop'
+        const resizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop'
         return {
             "l": url,
             "s": url+resizeParams
@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions}) => {
                 edges {
                     node {
                         childImageSharp {
-                            fixed(quality: 95, width: 200, height: 200) {
+                            fixed(quality: 95, width: 300, height: 300) {
                                 src
                             }
                             fluid {
