@@ -13,9 +13,9 @@ Try out this live demo with 10k photos »»» [https://gatsby-starter-infinite-s
 
 ## :zap: Get started
 
-`gatsby new my-inf-scroll https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll`.
+Fork and `npm install`. Run in dev mode with `gatsby develop`.
 
-The code is commented and you will be able to understand how it works. Start reading from [gatsby-node.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/gatsby-node.js) and then read [paginatedPageTemplate.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/templates/paginatedPageTemplate.js).
+I intend to write an article about how this works and what you need to consider if you want to replicate similar functionality in an existing project. Until then, I recommend reading the code in the following order: [gatsby-node.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/gatsby-node.js) » [templates/paginatedPageTemplate.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/templates/paginatedPageTemplate.js) » [components/view.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/view.js) » [components/globalState.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/globalState.js).
 
 If you run into any difficulty, I will be happy to help.
 
@@ -24,6 +24,7 @@ If you run into any difficulty, I will be happy to help.
 - The default behavior is to use infinite scroll, but **fallback to pagination** if JS is disabled or an error occurs. Additionally, the demo has a **toggle** so you can test both modes without disabling JS in your browser.
 - This implementation **does not fetch unnecessary metadata at initial pageload**. Instead, we only fetch the metadata that we actually need. For example, if we're showing you 120 items right now, then we only need metadata for 120 items. We can ask for more metadata as you scroll for more items. This was somewhat awkward to implement in Gatsby, which is why previously published implementations load metadata for _all_ items during initial page load, and then use client side JS to filter to the desired items. The performance hit for doing that isn't too bad for small collections of items, but it becomes unbearable for large collections, especially if the metadata contains base64 versions of images as placeholders. **This performance optimization was my main motivation for creating this starter**.
 - Additionally, a minor performance improvement: **initial items shipped along with the initial page instead of separately fetched**.
+- When the user navigates to another internal page and later returns to front page, **scroll position is not forgotten** (because we keep items in global state).
 - **Many edge cases are considered**, such as large screens (where initial page fits to screen before scrolling is possible) and slow connections (the initial pageload is consistent even before the React component mounts).
 - Includes a script that can fetch large amounts of random images from Unsplash.
 

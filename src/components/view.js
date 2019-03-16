@@ -14,13 +14,17 @@ class View extends React.Component {
         console.log("*** Constructing View ***")
         if (!props.globalState.items || !props.globalState.useInfiniteScroll) {
             console.log("View is initializing items according to page " + props.pageContext.currentPage)
-            props.globalState.updateState("items", props.pageContext.pageImages)
-            props.globalState.updateState("cursor", props.pageContext.currentPage+1)
+            props.globalState.updateState({
+                items: props.pageContext.pageImages,
+                cursor: props.pageContext.currentPage+1
+            })
         }
     }
 
     componentDidMount() {
-        this.props.globalState.updateState("isLoading", false);
+        this.props.globalState.updateState({
+            isLoading: false
+        })
     }
 
     render() {

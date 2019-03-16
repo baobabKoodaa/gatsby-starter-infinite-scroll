@@ -46,10 +46,8 @@ export class GlobalState extends React.Component {
         console.log("Showing " + this.state.items.length + " images.")
     }
 
-    updateState = (k, v) => {
-        this.setState({
-            [k]: v
-        })
+    updateState = (mergeableStateObject) => {
+        this.setState(mergeableStateObject)
     }
 
     loadMore = () => {
