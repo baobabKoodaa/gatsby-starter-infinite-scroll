@@ -9,7 +9,7 @@ class TrafficLight extends React.Component {
         super(props)
         this.state = {
             display: "none", // Hide for users who have JS disabled
-            green: props.green
+            green: props.green,
         }
         this.onClick = this.onClick.bind(this)
     }
@@ -24,7 +24,7 @@ class TrafficLight extends React.Component {
         this.setState({
             green: bool
         })
-        this.props.onClick(bool)
+        this.props.onClick(bool, this.props.pageContext)
     }
 
     render() {

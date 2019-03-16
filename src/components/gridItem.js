@@ -1,17 +1,19 @@
 import React from "react"
+import { Link } from "gatsby"
 
 const GridItem = props => {
 
     return (
         <React.Fragment>
             <div className="img-container" key={props.index}>
-                <a href={props.item.l} target="_blank" rel="noopener noreferrer" >
+                <Link to="/second" state={{img: props.item.l}}>
+                {/* <a href={props.item.l} target="_blank" rel="noopener noreferrer" > */}
                     <img
                         src={props.item.s}
                         alt=""
                         title=""
                     />
-                </a> 
+                </Link>
             </div>
             <style jsx>
                 {`
