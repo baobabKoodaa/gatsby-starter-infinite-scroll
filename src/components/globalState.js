@@ -4,7 +4,7 @@ import React from "react"
  * The reason we use Global State instead of Component State is that
  * when the user clicks something on the main page and then clicks back,
  * we don't want to reset the user's scroll position. If we don't maintain
- * state, then we will lose "lose" some of the items when the user clicks
+ * state, then we will "lose" some of the items when the user clicks
  * back and the state resets, which obviously resets scroll position as well.
  */
 export const GlobalStateContext = React.createContext({

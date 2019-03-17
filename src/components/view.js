@@ -75,7 +75,7 @@ class View extends React.Component {
                             {" "+g.items.length+" "}
                             items starting from page 
                             {" "+pageContext.currentPage}.
-                            Go to page <Link to="/">one</Link>?
+                            {/* TODO: fix: Go to page <Link to="/">one</Link>? */}
                         </center>
                         </h4>
                     </div>
