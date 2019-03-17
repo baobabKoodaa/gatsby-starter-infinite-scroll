@@ -4,7 +4,6 @@ import SEO from "../components/seo.js"
 import { GlobalStateContext } from "../components/globalState.js"
 import View from "../components/view.js"
 
-/** Template for "home" page with infinite scroll and fallback to pagination. */
 class PaginatedPageTemplate extends React.Component {
 
     render() {

@@ -15,7 +15,9 @@ Try out this live demo with 10k photos »»» [https://gatsby-starter-infinite-s
 
 Fork and `npm install`. Run in dev mode with `gatsby develop`.
 
-I intend to write an article about how this works and what you need to consider if you want to replicate similar functionality in an existing project. Until then, I recommend reading the code in the following order: [gatsby-node.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/gatsby-node.js) » [templates/paginatedPageTemplate.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/templates/paginatedPageTemplate.js) » [components/view.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/view.js) » [components/globalState.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/globalState.js).
+I intend to write an article about how this works and what you need to consider if you want to replicate similar functionality in an existing project. Until then, I recommend reading the code in the following order:
+
+[gatsby-node.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/gatsby-node.js) » [gatsby-browser.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/gatsby-browser.js) » [templates/paginatedPageTemplate.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/templates/paginatedPageTemplate.js) » [components/view.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/view.js) » [components/globalState.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/globalState.js).
 
 If you run into any difficulty, I will be happy to help.
 

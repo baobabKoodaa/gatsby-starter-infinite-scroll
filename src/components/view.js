@@ -7,6 +7,7 @@ import theme from "../theme.yaml"
 import Grid from "./grid.js"
 import TrafficLight from "./trafficlight.js"
 
+/** View for "home" page with infinite scroll and fallback to pagination. */
 class View extends React.Component {
 
     constructor(props) {
@@ -37,7 +38,7 @@ class View extends React.Component {
         }
 
         /*
-         * Typically currentlyVisibleItems come from global state.
+         * currentlyVisibleItems typically come from global state.
          * In other cases we simply render the items of this page (corresponds to a path like "/", "/2", "/3",...)
          * The other cases are:
          * - If a user has JS disabled (we won't be able to manipulate global state).
