@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Pagination from "./pagination.js"
-import { InfiniteScroll } from "./infiniteScroll.tsx"
+import { InfiniteScroll } from "./infiniteScroll.js"
 import { FaCog } from "react-icons/fa"
 import theme from "../theme.yaml"
 import Grid from "./grid.js"
@@ -14,18 +14,13 @@ class View extends React.Component {
         super(props)
         console.log("*** Constructing View ***")
         if (!props.globalState.items || !props.globalState.useInfiniteScroll) {
-            console.log("View is initializing items according to page " + props.pageContext.currentPage)
+            const pageKey = "page" + props.pageContext.currentPage
+            console.log(`View is initializing items according to ${pageKey}.`)
             props.globalState.updateState({
-                items: props.pageContext.pageImages,
+                [pageKey]: props.pageContext.pageImages,
                 cursor: props.pageContext.currentPage+1
             })
         }
-    }
-
-    componentDidMount() {
-        this.props.globalState.updateState({
-            isLoading: false
-        })
     }
 
     render() {
@@ -37,15 +32,6 @@ class View extends React.Component {
             useInfiniteScroll: g.useInfiniteScroll
         }
 
-        /*
-         * currentlyVisibleItems typically come from global state.
-         * In other cases we simply render the items of this page (corresponds to a path like "/", "/2", "/3",...)
-         * The other cases are:
-         * - If a user has JS disabled (we won't be able to manipulate global state).
-         * - The very first render on initial pageload. 
-         */
-        const currentlyVisibleItems = g.items || pageContext.pageImages
-
         return(
             <>
 
@@ -56,33 +42,30 @@ class View extends React.Component {
                 <InfiniteScroll
                     throttle={150}
                     threshold={1800}
-                    isLoading={g.isLoading}
                     hasMore={g.hasMore(pageContext)}
                     onLoadMore={g.loadMore}
                 >
 
-                    {/* Visible items given as a child element for inf. scroll). */}
-                    <Grid items={currentlyVisibleItems} />
+                    {/* Grid given as a child element for Infinite Scroll. */}
+                    <Grid globalState={g} pageContext={pageContext} />
                     
                 </InfiniteScroll>
 
                 {/* Notification for demo purposes. */}
-                {g.useInfiniteScroll && !g.hasMore(pageContext) && !g.isLoading && (
+                {g.useInfiniteScroll && !g.hasMore(pageContext) && (
                     <div style={{ paddingTop: "40px"}}>
                         <h4>
                         <center>
-                            Congrats! You scrolled through all
-                            {" "+g.items.length+" "}
-                            items starting from page 
+                            Congrats! You scrolled through all items starting from page
                             {" "+pageContext.currentPage}.
-                            {/* TODO: fix: Go to page <Link to="/">one</Link>? */}
+                            Go to page <Link to="/">one</Link>?
                         </center>
                         </h4>
                     </div>
                 )}
 
                 {/* Loading spinner. */}
-                {g.isLoading && (
+                {g.hasMore(pageContext) && (
                     <div className="spinner">
                         <FaCog/>
                     </div>

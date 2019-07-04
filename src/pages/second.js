@@ -8,8 +8,9 @@ const SecondPage = (props) => (
     <SEO title="Second Page" />
     <center>
       <br/><br/>
+
       <p>This page exists to demonstrate behavior when you click back (infinite scroll state is maintained).</p>
-      <br/><br/>
+
       {props.location.state && props.location.state.img &&
         <img
           src={props.location.state.img}
@@ -21,6 +22,7 @@ const SecondPage = (props) => (
           }}
         />
       }
+      
     </center>
   </Layout>
 )

@@ -6,14 +6,17 @@ const GridItem = props => {
     return (
         <React.Fragment>
             <div className="img-container" key={props.index}>
-                <Link to="/second" state={{img: props.item.l}}>
-                {/* <a href={props.item.l} target="_blank" rel="noopener noreferrer" > */}
-                    <img
-                        src={props.item.s}
-                        alt=""
-                        title=""
-                    />
-                </Link>
+
+                {props.item && (
+                    <Link to="/second" state={{img: props.item.l}}>
+                        <img
+                            src={props.item.s}
+                            alt=""
+                            title=""
+                        />
+                    </Link>
+                )}
+                
             </div>
             <style jsx>
                 {`
