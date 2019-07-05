@@ -10,6 +10,7 @@ import React from "react"
 export const GlobalStateContext = React.createContext({
     cursor: 0, /* Which page infinite scroll should fetch next. */
     useInfiniteScroll: true, /* Toggle between pagination and inf. scroll for this demo & fallback in case of error. */
+    isInitializing: () => {},
     updateState: () => {},
     hasMore: () => {},
     loadMore: () => {},
@@ -27,16 +28,22 @@ export class GlobalState extends React.Component {
         this.loadMore = this.loadMore.bind(this)
         this.hasMore = this.hasMore.bind(this)
         this.updateState = this.updateState.bind(this)
+        this.isInitializing = this.isInitializing.bind(this)
         
         /* State also contains metadata for items, e.g. state["page81"] (only contains keys for _received_ metadata) */
         this.state = {
             cursor: 0,
             useInfiniteScroll: true,
+            isInitializing: this.isInitializing,
             updateState: this.updateState,
             hasMore: this.hasMore,
             loadMore: this.loadMore,
             toggle: this.toggle
         }
+    }
+
+    isInitializing = () => {
+        return (this.state.cursor === 0)
     }
 
     updateState = (mergeableStateObject) => {
@@ -64,7 +71,9 @@ export class GlobalState extends React.Component {
     }
 
     hasMore = (pageContext) => {
-        return (this.state.cursor <= pageContext.countPages && this.state.useInfiniteScroll)
+        if (!this.state.useInfiniteScroll) return false
+        if (this.isInitializing()) return true
+        return this.state.cursor <= pageContext.countPages
     }
 
     /** This exists to demo toggling. You will not need this in production. */
@@ -78,7 +87,6 @@ export class GlobalState extends React.Component {
             })
         } else {
             /* Toggle back to pagination, reset items and cursor. */
-            console.log(this.state)
             const state = {}
             for (var i=this.state.cursor-1; i>=0; i--) {
                 state['page'+i] = undefined

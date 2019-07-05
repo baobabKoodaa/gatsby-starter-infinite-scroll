@@ -52,7 +52,7 @@ class View extends React.Component {
                 </InfiniteScroll>
 
                 {/* Notification for demo purposes. */}
-                {g.useInfiniteScroll && !g.hasMore(pageContext) && (
+                {g.useInfiniteScroll && g.cursor != 0 && !g.hasMore(pageContext) && (
                     <div style={{ paddingTop: "40px"}}>
                         <h4>
                         <center>
@@ -65,7 +65,7 @@ class View extends React.Component {
                 )}
 
                 {/* Loading spinner. */}
-                {g.hasMore(pageContext) && (
+                {(g.cursor == 0 || g.hasMore(pageContext)) && (
                     <div className="spinner">
                         <FaCog/>
                     </div>

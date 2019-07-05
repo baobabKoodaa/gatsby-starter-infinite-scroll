@@ -8,6 +8,7 @@ const Grid = (props) => {
     
     const items = []
     var i = 0, j = 0 , numberOfItemsOnLatestPage = 0
+    const js = !g.isInitializing()
     if (g.useInfiniteScroll && g["page"+currentPage]) {
         for (var pageNum=currentPage ;; pageNum++) {
             const key = "page"+pageNum
@@ -15,11 +16,12 @@ const Grid = (props) => {
                 /* Add gridItems that we have received metadata for. */
                 numberOfItemsOnLatestPage = g[key].length
                 for (j=0; j<numberOfItemsOnLatestPage; j++) {
-                    items.push(<GridItem item={g[key][j]} key={"gi"+(i++)}/>)
+                    items.push(<GridItem js={js} item={g[key][j]} key={"gi"+(i++)}/>)
                 }
             }
             else {
-                for (; pageNum < g.cursor; pageNum++) {
+                const lastFetchedPage = Math.min(g.cursor, props.pageContext.countPages)
+                for (; pageNum <= lastFetchedPage; pageNum++) {
                     /* For each page that we have fetched, but haven't received metadata for, render empty gridItems. */
                     const expectedNumberOfItemsOnPage = numberOfItemsOnLatestPage
                     for (j=0; j<expectedNumberOfItemsOnPage; j++) {
