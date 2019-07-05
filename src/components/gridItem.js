@@ -8,12 +8,12 @@ const GridItem = props => {
             <div className="img-container" key={props.index}>
 
                 {props.item && props.js && (
-                    <Link to="/second" state={{img: props.item.l}}>
+                    <Link to={`/viewItem?id=${props.item.l}`}>
                         <img src={props.item.s} alt="" title="" />
                     </Link>
                 )}
                 {props.item && !props.js && (
-                    <a href={props.item.l} target="_blank">
+                    <a href={props.item.l} target="_blank" rel="noopener noreferrer">
                         <img src={props.item.s} alt="" title="" />
                     </a>
                 )}

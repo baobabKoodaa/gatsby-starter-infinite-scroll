@@ -11,10 +11,11 @@ exports.createPages = ({ graphql, actions}) => {
      */
     var rawRemoteUrls = JSON.parse(fs.readFileSync('content/images/remote_image_urls.json', 'utf8'));
     const remoteImages = rawRemoteUrls.map(url => {
-        const resizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop'
+        const thumbnailResizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop'
+        const largeResizeParams = '?w=1200&q=90'
         return {
-            "l": url,
-            "s": url+resizeParams
+            "l": url+largeResizeParams,
+            "s": url+thumbnailResizeParams
         }
     })
 
