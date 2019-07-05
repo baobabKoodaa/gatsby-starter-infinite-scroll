@@ -30,7 +30,7 @@ If you run into any difficulty, I will be happy to help.
 - **Many edge cases are considered**
     - Large screens / small pages: If initial items fit to screen before scrolling is possible, we fetch more items (this is often overlooked in infinite scroll implementations, e.g. LinkedIn and react-simple-infinite-scroll have this bug.)
     - Slow connections: the initial pageload is consistent even before the React component mounts.
-    - Metadata fetching: allow fetching multiple pages of metadata concurrently (not fetching pages consecutively allows users to scroll down faster, e.g. if images are cached and metadata pages are not, or if the user wants to scroll fast to a specific location before images can load).
+    - Metadata fetching: allow fetching multiple pages of metadata concurrently (as opposed to consecutively, which slows the maximum scroll speed. This can be relevant for example when images are cached locally and metadata pages are not, or if the user wants to scroll fast to a specific location before images can load).
 - Includes a script that can fetch large amounts of random images from Unsplash.
 
 ## 🎓 Attribution
