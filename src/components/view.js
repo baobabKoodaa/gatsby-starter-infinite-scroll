@@ -13,7 +13,7 @@ class View extends React.Component {
     constructor(props) {
         super(props)
         console.log("*** Constructing View ***")
-        if (!props.globalState.items || !props.globalState.useInfiniteScroll) {
+        if (props.globalState.isInitializing() || !props.globalState.useInfiniteScroll) {
             const pageKey = "page" + props.pageContext.currentPage
             console.log(`View is initializing items according to ${pageKey}.`)
             props.globalState.updateState({
