@@ -9,7 +9,12 @@ const SecondPage = (props) => (
 
       {({ location }) => {
         if (!location || !location.href) return <></>
-        const url = location.href.split("?id=")[1]
+        var url = location.href.split("?id=")[1]
+        if (url.includes(":/") && !url.includes("://")) {
+          /* Something in Gatsby or React sometimes deforms the URL so we need to fix it here. */
+          url = url.replace(":/", "://")
+        }
+        console.log(url)
         return (
           <>
             <SEO title="Second Page" />
