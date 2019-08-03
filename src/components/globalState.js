@@ -10,7 +10,7 @@ import React from "react"
 export const GlobalStateContext = React.createContext({
     cursor: 0, /* Which page infinite scroll should fetch next. */
     useInfiniteScroll: true, /* Toggle between pagination and inf. scroll for this demo & fallback in case of error. */
-    isInitializing: () => {},
+    isInitializing: () => { return true },
     updateState: () => {},
     hasMore: () => {},
     loadMore: () => {},
