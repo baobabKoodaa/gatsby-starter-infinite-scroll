@@ -54,7 +54,7 @@ export class GlobalState extends React.Component {
         console.log("Fetching metadata for page " + this.state.cursor)
         const pageNum = this.state.cursor
         this.setState(state => ({ cursor: state.cursor+1 })) // TODO: make sure this is guaranteed to set state before another loadMore may be able to fire!
-        fetch(`/paginationJson/index${pageNum}.json`)
+        fetch(`${__PATH_PREFIX__}/paginationJson/index${pageNum}.json`)
           .then(res => res.json())
           .then(
             res => {
