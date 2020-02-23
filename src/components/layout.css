@@ -1,9 +1,11 @@
 html {
+  background-color: #78AD5A;
   font-family: Open Sans;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
+  background-color: white;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,10 +44,13 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+  color: #0366D6;
 }
 a:active,
 a:hover {
   outline-width: 0;
+  text-decoration: underline;
 }
 abbr[title] {
   border-bottom: none;
@@ -230,8 +235,9 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Heiti SC';
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, */
+    /* Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -624,6 +630,14 @@ pre tt:after {
   }
 }
 
+/*
+*
+*
+* CUSTOM STYLES
+*
+*
+*/
+
 /* Brand Styles */
 
 .logo { 
@@ -644,4 +658,13 @@ pre tt:after {
 }
 .navigationItem a:hover { 
   color: #78AD5A;
+}
+
+.page {
+  min-height: 800px;
+  padding: 20px;
+}
+
+.form {
+  padding: 20px;
 }

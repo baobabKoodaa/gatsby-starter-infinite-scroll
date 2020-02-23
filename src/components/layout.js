@@ -41,14 +41,14 @@ class Layout extends React.Component {
               style={{
                 margin: `0 auto`,
                 maxWidth: "100vw",
-                padding: `0px 0px 1.45rem`,
                 paddingTop: 0,
                 paddingLeft: "2px",
                 paddingRight: "2px"
               }}
             >
               <main style={{ marginTop: '20px' }}>{this.props.children}</main>
-              <footer>
+              <footer style={{ backgroundColor: '#F6F8FA', padding: '10px', margin: '0 auto', textAlign: 'center', fontSize: '0.75rem' }}>
+                <p style={{ marginTop: '20px' }}>A <a href="https://blueprintdigital.co" target="_blank">Blueprint Digital</a> project</p>
               </footer>
             </div>
           </>

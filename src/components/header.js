@@ -4,8 +4,6 @@ import React from "react"
 import { Link } from "gatsby"
 import DynamicIcon from './dynamicIcon';
 
-
-
 const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
   <header
     style={{
@@ -46,7 +44,6 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
                   class="navigationItem"
                 >
                   <a
-                    // target="_blank"
                     href={link.link}
                   >
                     <DynamicIcon tag={link.icon} />

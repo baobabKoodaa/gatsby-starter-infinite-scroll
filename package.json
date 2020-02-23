@@ -1,10 +1,11 @@
 {
-  "name": "gatsby-starter-infinite-scroll",
+  "name": "holacabo",
   "private": true,
-  "description": "Infinite Scroll and Pagination with Gatsby",
+  "description": "Say hello to the best in Los Cabos",
   "version": "1.0.0",
-  "author": "Baobab Koodaa <npm1232983x@baobab.fi>",
+  "author": "Kyle Turner <kyle@blueprintdigital.co>",
   "dependencies": {
+    "@material-ui/core": "^4.9.4",
     "es6-promise": "^4.2.8",
     "gatsby": "^2.15.14",
     "gatsby-image": "^2.2.18",
@@ -34,7 +35,8 @@
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "hola cabo",
+    "cabo"
   ],
   "license": "MIT",
   "scripts": {

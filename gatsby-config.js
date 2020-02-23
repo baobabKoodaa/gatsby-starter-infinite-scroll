@@ -4,6 +4,7 @@ module.exports = {
     logo: 'https://nightlife2-webapp.s3.amazonaws.com/HolaCabo%20Logo%20Final%201024.png',
     description: `Say 👋to the best of Los Cabos.`,
     author: `Solco, LLC`,
+    // https://github.com/react-icons/react-icons
     // https://react-icons.netlify.com/#/icons/fa
     menuLinks: [
       {
