@@ -18,7 +18,7 @@ class View extends React.Component {
             console.log(`View is initializing items according to ${pageKey}.`)
             props.globalState.updateState({
                 [pageKey]: props.pageContext.pageImages,
-                cursor: props.pageContext.currentPage+1
+                cursor: props.pageContext.currentPage + 1
             })
         }
     }
@@ -32,12 +32,8 @@ class View extends React.Component {
             useInfiniteScroll: g.useInfiniteScroll
         }
 
-        return(
+        return (
             <>
-
-                {/* Traffic Lights to toggle between Infinite Scroll and Pagination. */}
-                <TrafficLight onClick={g.toggle} green={g.useInfiniteScroll} pageContext={pageContext} />
-
                 {/* Infinite Scroll */}
                 <InfiniteScroll
                     throttle={150}
@@ -48,16 +44,16 @@ class View extends React.Component {
 
                     {/* Grid given as a child element for Infinite Scroll. */}
                     <Grid globalState={g} pageContext={pageContext} />
-                    
+
                 </InfiniteScroll>
 
                 {/* Notification for demo purposes. */}
                 {g.useInfiniteScroll && g.cursor !== 0 && !g.hasMore(pageContext) && (
-                    <div style={{ paddingTop: "40px"}}>
+                    <div style={{ paddingTop: "40px" }}>
                         <h4>
-                        <center>
-                            Congrats! You scrolled through all items starting from page
-                            {" "+pageContext.currentPage}.
+                            <center>
+                                Congrats! You scrolled through all items starting from page
+                            {" " + pageContext.currentPage}.
                             Go to page <Link to="/">one</Link>?
                         </center>
                         </h4>
@@ -67,14 +63,14 @@ class View extends React.Component {
                 {/* Loading spinner. */}
                 {(g.cursor === 0 || g.hasMore(pageContext)) && (
                     <div className="spinner">
-                        <FaCog/>
+                        <FaCog />
                     </div>
                 )}
 
-                {/* Fallback to Pagination for non JS users. */} 
+                {/* Fallback to Pagination for non JS users. */}
                 {g.useInfiniteScroll && (
                     <noscript>
-                        <style> 
+                        <style>
                             {`.spinner { display: none !important; }`}
                         </style>
                         <Pagination paginationData={paginationData} />
@@ -95,7 +91,7 @@ class View extends React.Component {
                         margin-top: 40px;
                         font-size: 60px;
                         text-align: center;
-                        display: ${g.useInfiniteScroll ? "block" : "none" };
+                        display: ${g.useInfiniteScroll ? "block" : "none"};
 
                         :global(svg) {
                             fill: ${theme.color.brand.primaryLight};

@@ -17,7 +17,7 @@ const GridItem = props => {
                         <img src={props.item.s} alt="" title="" />
                     </a>
                 )}
-                
+
             </div>
             <style jsx>
                 {`
@@ -25,10 +25,59 @@ const GridItem = props => {
                         position: relative;
                         width:100%;
                         background:#EEE;
-                        border-radius: 5px;
-                        border: 1px solid ghostwhite;
                         overflow: hidden;
                         z-index: 1;
+
+                        align-items:stretch;
+                        border-bottom-color:rgb(0, 0, 0);
+                        border-bottom-style:solid;
+                        border-bottom-width:0px;
+                        border-image-outset:0px;
+                        border-image-repeat:stretch;
+                        border-image-slice:100%;
+                        border-image-source:none;
+                        border-image-width:1;
+                        border-left-color:rgb(0, 0, 0);
+                        border-left-style:solid;
+                        border-left-width:0px;
+                        border-right-color:rgb(0, 0, 0);
+                        border-right-style:solid;
+                        border-right-width:0px;
+                        border-top-color:rgb(0, 0, 0);
+                        border-top-style:solid;
+                        border-top-width:0px;
+                        box-sizing:border-box;
+                        color:rgb(38, 38, 38);
+                        display:block;
+                        flex-basis:0%;
+                        flex-direction:column;
+                        flex-grow:1;
+                        flex-shrink:0;
+                        font-family:-apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                        font-size:14px;
+                        font-stretch:100%;
+                        font-style:normal;
+                        font-variant-caps:normal;
+                        font-variant-east-asian:normal;
+                        font-variant-ligatures:normal;
+                        font-variant-numeric:normal;
+                        font-weight:400;
+                        line-height:18px;
+                        margin-bottom:0px;
+                        margin-left:0px;
+                        margin-right:28px;
+                        margin-top:0px;
+                        padding-bottom:0px;
+                        padding-left:0px;
+                        padding-right:0px;
+                        padding-top:0px;
+                        position:relative;
+                        text-size-adjust:100%;
+                        vertical-align:baseline;    
+                        -webkit-box-align:stretch;
+                        -webkit-box-direction:normal;
+                        -webkit-box-flex:1;
+                        -webkit-box-orient:vertical;
                     }
 
                     .img-container::before {
@@ -45,11 +94,8 @@ const GridItem = props => {
                         width: 100%;
                         height: auto;
                         margin: 0 !important;
-                        border-radius: 5px;
-                        border: 1px solid gray;
                         transition: 0.2s ease-in-out;
                         z-index: 2;
-
                         :hover {
                             opacity: 0.4;
                             transform: scale(1.1);

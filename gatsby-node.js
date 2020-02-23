@@ -1,8 +1,11 @@
 const path = require(`path`)
 const fs = require('fs');
+// const axios = require('axios');
 
-exports.createPages = ({ graphql, actions}) => {
+exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
+
+    // TODO: Axios call to Instagram API here
 
     /* 
      * There are a few local images in this repo to show you how to fetch images with GraphQL.
@@ -14,8 +17,8 @@ exports.createPages = ({ graphql, actions}) => {
         const thumbnailResizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop'
         const largeResizeParams = '?w=1200&q=90'
         return {
-            "l": url+largeResizeParams,
-            "s": url+thumbnailResizeParams
+            "l": url + largeResizeParams,
+            "s": url + thumbnailResizeParams
         }
     })
 
@@ -62,8 +65,8 @@ exports.createPages = ({ graphql, actions}) => {
         /* Iterate needed pages and create them. */
         const countImagesPerPage = 20
         const countPages = Math.ceil(images.length / countImagesPerPage)
-        for (var currentPage=1; currentPage<=countPages; currentPage++) {
-            const pathSuffix = (currentPage>1? currentPage : "") /* To create paths "/", "/2", "/3", ... */
+        for (var currentPage = 1; currentPage <= countPages; currentPage++) {
+            const pathSuffix = (currentPage > 1 ? currentPage : "") /* To create paths "/", "/2", "/3", ... */
 
             /* Collect images needed for this page. */
             const startIndexInclusive = countImagesPerPage * (currentPage - 1)
@@ -72,10 +75,10 @@ exports.createPages = ({ graphql, actions}) => {
 
             /* Combine all data needed to construct this page. */
             const pageData = {
-                path: `/${pathSuffix}`, 
+                path: `/${pathSuffix}`,
                 component: paginatedPageTemplate,
                 context: {
-                     /* If you need to pass additional data, you can pass it inside this context object. */
+                    /* If you need to pass additional data, you can pass it inside this context object. */
                     pageImages: pageImages,
                     currentPage: currentPage,
                     countPages: countPages
@@ -95,14 +98,14 @@ exports.createPages = ({ graphql, actions}) => {
 function createJSON(pageData) {
     const pathSuffix = pageData.path.substring(1)
     const dir = "public/paginationJson/"
-    if (!fs.existsSync(dir)){
-      fs.mkdirSync(dir);
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
     }
-    const filePath = dir+"index"+pathSuffix+".json";
+    const filePath = dir + "index" + pathSuffix + ".json";
     const dataToSave = JSON.stringify(pageData.context.pageImages);
-    fs.writeFile(filePath, dataToSave, function(err) {
-      if(err) {
-        return console.log(err);
-      }
-    }); 
+    fs.writeFile(filePath, dataToSave, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
 }

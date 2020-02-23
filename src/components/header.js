@@ -1,25 +1,37 @@
 import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: `white`,
     }}
   >
     <div
       style={{
         margin: `0 auto 2px`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `0.5rem`,
       }}
     >
-      <h1 style={{ margin: 0, color: `white` }}>
-
-          {siteTitle}
-
-      </h1>
+      <img style={{ margin: '0 auto', paddingLeft: '20px' }} height={100} width={'auto'} src="https://nightlife2-webapp.s3.amazonaws.com/HolaCabo%20Logo%20Final%201024.png"></img>
+      {/* <nav>
+        <ul style={{ display: "flex", flex: 1, float: 'right' }}>
+          <li
+            key='Hey'
+            style={{
+              listStyleType: `none`,
+              padding: `1rem`,
+            }}
+          >
+            <Link style={{ color: `white` }} to={''}>
+              {'Cool stuff'}
+            </Link>
+          </li>
+        </ul>
+      </nav> */}
     </div>
+
   </header>
 )
 
