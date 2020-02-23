@@ -5,7 +5,6 @@ import { InfiniteScroll } from "./infiniteScroll.js"
 import { FaCog } from "react-icons/fa"
 import theme from "../theme.yaml"
 import Grid from "./grid.js"
-import TrafficLight from "./trafficlight.js"
 
 /** View for "home" page with infinite scroll and fallback to pagination. */
 class View extends React.Component {

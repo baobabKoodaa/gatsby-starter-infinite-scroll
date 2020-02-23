@@ -623,3 +623,31 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* Brand Styles */
+
+.logo { 
+  margin: 0 auto; 
+  float: left;
+}
+
+.navigation { 
+  /* display: "flex"; */
+  /* justify-items: "space-between"; */
+  /* margin: "0 auto"; */
+}
+.navigationItem {
+  list-style-type: none;
+  padding: 1rem;
+  font-family: 'Heiti SC';
+}
+.navigationItem a { 
+  text-decoration: none;
+  color: black;
+}
+.navigationItem a:hover { 
+  color: #78AD5A;
+}
+.navigationItem--active {
+  color: red;
+}

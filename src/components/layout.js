@@ -16,13 +16,27 @@ class Layout extends React.Component {
             site {
               siteMetadata {
                 title
+                logo
+                menuLinks {
+                  name
+                  link
+                }
+                socialLinks {
+                  name
+                  link
+                  icon
+                }
               }
             }
           }
         `}
         render={data => (
           <>
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header
+              siteTitle={data.site.siteMetadata.title}
+              siteLogo={data.site.siteMetadata.logo}
+              menuLinks={data.site.siteMetadata.menuLinks}
+              socialLinks={data.site.siteMetadata.socialLinks} />
             <div
               style={{
                 margin: `0 auto`,

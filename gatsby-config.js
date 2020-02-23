@@ -1,8 +1,36 @@
 module.exports = {
   siteMetadata: {
     title: `Hola Cabo`,
-    description: `Need infinite scroll or pagination in your Gatsby project? This starter is for you.`,
-    author: `baobabKoodaa`,
+    logo: 'https://nightlife2-webapp.s3.amazonaws.com/HolaCabo%20Logo%20Final%201024.png',
+    description: `Say 👋to the best of Los Cabos.`,
+    author: `Solco, LLC`,
+    // https://react-icons.netlify.com/#/icons/fa
+    menuLinks: [
+      {
+        name: 'home',
+        link: '/',
+      },
+      {
+        name: 'about',
+        link: '/about'
+      },
+      {
+        name: 'contact',
+        link: '/contact'
+      },
+    ],
+    socialLinks: [
+      {
+        name: 'Instagram',
+        link: 'https://instagram.com/holacabo',
+        icon: 'instagram'
+      },
+      {
+        name: 'Facebook',
+        link: 'https://facebook.com/holacabo',
+        icon: 'facebook'
+      }
+    ]
   },
   plugins: [
     {
@@ -42,7 +70,7 @@ module.exports = {
         icon: `static/holacabo-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // this (optional) plugin enables Progressive Web App  Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],

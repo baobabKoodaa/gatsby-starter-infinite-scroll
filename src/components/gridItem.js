@@ -95,9 +95,11 @@ const GridItem = props => {
                         height: auto;
                         margin: 0 !important;
                         transition: 0.2s ease-in-out;
+                        -webkit-transition: .2s ease-in-out;
                         z-index: 2;
                         :hover {
-                            opacity: 0.4;
+                            -webkit-filter: brightness(50%);
+                            filter: brightness(50%);
                             transform: scale(1.1);
                         }
                     }

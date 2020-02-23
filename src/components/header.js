@@ -1,8 +1,12 @@
+
 import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
+import DynamicIcon from './dynamicIcon';
 
-const Header = ({ siteTitle }) => (
+
+
+const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
   <header
     style={{
       background: `white`,
@@ -10,26 +14,49 @@ const Header = ({ siteTitle }) => (
   >
     <div
       style={{
-        margin: `0 auto 2px`,
         padding: `0.5rem`,
+        justifyItems: "space-between",
       }}
     >
-      <img style={{ margin: '0 auto', paddingLeft: '20px' }} height={100} width={'auto'} src="https://nightlife2-webapp.s3.amazonaws.com/HolaCabo%20Logo%20Final%201024.png"></img>
-      {/* <nav>
-        <ul style={{ display: "flex", flex: 1, float: 'right' }}>
-          <li
-            key='Hey'
-            style={{
-              listStyleType: `none`,
-              padding: `1rem`,
-            }}
-          >
-            <Link style={{ color: `white` }} to={''}>
-              {'Cool stuff'}
-            </Link>
-          </li>
-        </ul>
-      </nav> */}
+      {/* Brand Logo */}
+      <img class="logo" height={100} width={'auto'} src={siteLogo}></img>
+
+      <div class="navigation" style={{ display: "flex", justifyItems: 'end' }}>
+        {/* Navigation Menu */}
+        <nav>
+          <ul style={{ display: "flex", flex: 1, justifyContent: 'end' }}>
+            {menuLinks.map(link => (
+              <li
+                key={link.name}
+                class="navigationItem"
+              >
+                <Link
+                  to={link.link}
+                  activeClassName="navigationItem--active"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+            {socialLinks.map(link =>
+              (
+                <li
+                  key={link.name}
+                  class="navigationItem"
+                >
+                  <a
+                    // target="_blank"
+                    href={link.link}
+                  >
+                    <DynamicIcon tag={link.icon} />
+                  </a>
+                </li>
+              ))}
+
+          </ul>
+
+        </nav>
+      </div>
     </div>
 
   </header>
