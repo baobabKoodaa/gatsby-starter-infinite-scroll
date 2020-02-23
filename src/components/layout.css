@@ -630,15 +630,12 @@ pre tt:after {
   margin: 0 auto; 
   float: left;
 }
+.navigation { margin : 0 auto; }
 
-.navigation { 
-  /* display: "flex"; */
-  /* justify-items: "space-between"; */
-  /* margin: "0 auto"; */
-}
 .navigationItem {
   list-style-type: none;
-  padding: 1rem;
+  padding: 0.5rem;
+  margin-right: 8px;
   font-family: 'Heiti SC';
 }
 .navigationItem a { 
@@ -647,7 +644,4 @@ pre tt:after {
 }
 .navigationItem a:hover { 
   color: #78AD5A;
-}
-.navigationItem--active {
-  color: red;
 }

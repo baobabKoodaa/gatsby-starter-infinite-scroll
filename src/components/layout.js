@@ -47,7 +47,7 @@ class Layout extends React.Component {
                 paddingRight: "2px"
               }}
             >
-              <main>{this.props.children}</main>
+              <main style={{ marginTop: '20px' }}>{this.props.children}</main>
               <footer>
               </footer>
             </div>

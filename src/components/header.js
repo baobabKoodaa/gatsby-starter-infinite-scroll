@@ -10,6 +10,7 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
   <header
     style={{
       background: `white`,
+      minHeight: `100px`,
     }}
   >
     <div
@@ -21,10 +22,10 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
       {/* Brand Logo */}
       <img class="logo" height={100} width={'auto'} src={siteLogo}></img>
 
-      <div class="navigation" style={{ display: "flex", justifyItems: 'end' }}>
+      <div class="navigation" style={{ display: 'flex', float: 'right', marginTop: '25px' }}>
         {/* Navigation Menu */}
         <nav>
-          <ul style={{ display: "flex", flex: 1, justifyContent: 'end' }}>
+          <ul style={{ display: "flex", flex: 1 }}>
             {menuLinks.map(link => (
               <li
                 key={link.name}
