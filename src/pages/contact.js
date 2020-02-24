@@ -20,7 +20,7 @@ const ContactPage = (props) => (
                     <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
                         {/* Name */}
                         <Grid item xs={12}>
-                            <FormControl class="field">
+                            <FormControl style={{ marginBottom: '40px', width: '100%' }}>
                                 <Input
                                     name="name"
                                     aria-describedby="name"
@@ -34,7 +34,7 @@ const ContactPage = (props) => (
 
                         {/* Email */}
                         <Grid item>
-                            <FormControl class="field">
+                            <FormControl style={{ marginBottom: '40px', width: '100%' }}>
                                 <Input
                                     name="email"
                                     aria-describedby="email"
@@ -50,7 +50,7 @@ const ContactPage = (props) => (
 
                         {/* Phone / WhatsApp */}
                         <Grid item>
-                            <FormControl class="field">
+                            <FormControl style={{ marginBottom: '40px', width: '100%' }}>
                                 <Input
                                     name="phone"
                                     aria-describedby="phone"
@@ -65,7 +65,7 @@ const ContactPage = (props) => (
 
                         {/* Message */}
                         <Grid item>
-                            <FormControl class="field">
+                            <FormControl style={{ marginBottom: '20px', width: '100%' }}>
                                 <Input
                                     name="message"
                                     aria-describedby="message"
