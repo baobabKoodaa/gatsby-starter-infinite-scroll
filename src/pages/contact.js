@@ -22,13 +22,14 @@ const ContactPage = (props) => (
                 <h1>Contact Us</h1>
                 <p>We'd love to hear from you! For media inquiries you can also email us at <a href="mailto:holacabomx@gmail.com">holacabomx@gmail.com</a>.</p>
                 <div class="form">
-                    <form name="contact" method="POST" netlify>
+                    <form name="contact" method="POST" netlify-honeypot="bot-field" netlify>
                         {/* Name */}
                         <Grid item xs={12}>
                             <FormControl class="field">
                                 <Input
-                                    id="name" aria-describedby="name"
-                                    label="Name" name="name" type="text" fullWidth
+                                    name="name"
+                                    aria-describedby="name"
+                                    label="Name" type="text" fullWidth
                                     placeholder="Who are you?"
                                     required
                                     startAdornment={<InputAdornment position="start"><FaUser style={{ color: '#D8D8D8' }} /></InputAdornment>}
@@ -40,8 +41,11 @@ const ContactPage = (props) => (
                         <Grid item>
                             <FormControl class="field">
                                 <Input
-                                    id="email" aria-describedby="email"
-                                    label="Email" name="email" type="email" fullWidth
+                                    name="email"
+                                    aria-describedby="email"
+                                    label="Email"
+                                    type="email"
+                                    fullWidth
                                     placeholder="Your email address"
                                     required
                                     startAdornment={<InputAdornment position="start"><FaEnvelope style={{ color: '#D8D8D8' }} /></InputAdornment>}
@@ -53,8 +57,11 @@ const ContactPage = (props) => (
                         <Grid item>
                             <FormControl class="field">
                                 <Input
-                                    id="phone" aria-describedby="phone"
-                                    label="Phone" name="phone" type="tel" fullWidth
+                                    name="phone"
+                                    aria-describedby="phone"
+                                    label="Phone"
+                                    type="tel"
+                                    fullWidth
                                     placeholder="Phone / WhatsApp"
                                     startAdornment={<InputAdornment position="start"><FaPhoneSquare style={{ color: '#D8D8D8' }} /></InputAdornment>}
                                 />
@@ -65,8 +72,10 @@ const ContactPage = (props) => (
                         <Grid item>
                             <FormControl class="field">
                                 <Input
-                                    id="message" aria-describedby="message"
-                                    label="Message" name="message" multiline fullWidth
+                                    name="message"
+                                    aria-describedby="message"
+                                    label="Message"
+                                    multiline fullWidth
                                     rows={6}
                                     placeholder="How can we help you?"
                                     required
@@ -76,6 +85,7 @@ const ContactPage = (props) => (
                         </Grid>
 
                         <Grid item>
+                            <input type="hidden" name="form-name" value="contact" />
                             <button type="submit">Send</button>
                         </Grid>
                     </form>

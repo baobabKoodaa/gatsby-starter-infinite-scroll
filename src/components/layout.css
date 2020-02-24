@@ -728,7 +728,6 @@ button:hover {
   vertical-align: middle;
 }
 
-
 /*
 *
 *
@@ -736,8 +735,6 @@ button:hover {
 *
 *
 */
-
-
 
 /* Phone */
 @media only screen and (max-width: 480px) {
