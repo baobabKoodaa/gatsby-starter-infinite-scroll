@@ -1,19 +1,14 @@
 import React from "react"
-import CssBaseline from '@material-ui/core/CssBaseline';
-
-import { Location } from '@reach/router'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Container from '@material-ui/core/Container';
 import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
-
-import TextField from '@material-ui/core/TextField';
 import { FaComment, FaPhoneSquare, FaEnvelope, FaUser } from 'react-icons/fa'
 
+// https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 const ContactPage = (props) => (
     <Layout>
         <div class="page">
@@ -22,7 +17,7 @@ const ContactPage = (props) => (
                 <h1>Contact Us</h1>
                 <p>We'd love to hear from you! For media inquiries you can also email us at <a href="mailto:holacabomx@gmail.com">holacabomx@gmail.com</a>.</p>
                 <div class="form">
-                    <form name="contact" method="POST" netlify-honeypot="bot-field" netlify>
+                    <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
                         {/* Name */}
                         <Grid item xs={12}>
                             <FormControl class="field">
