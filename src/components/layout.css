@@ -644,6 +644,19 @@ pre tt:after {
   margin: 0 auto; 
   float: left;
 }
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    vertical-align: middle;
+    float: none;
+  }
+}
 .navigation { margin : 0 auto; }
 
 .navigationItem {

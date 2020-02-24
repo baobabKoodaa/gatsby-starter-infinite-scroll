@@ -15,12 +15,16 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
       style={{
         padding: `0.5rem`,
         justifyItems: "space-between",
+        whiteSpace: 'nowrap',
+        textAlign: 'center',
+        margin: '0 auto'
       }}
     >
       {/* Brand Logo */}
+      <span class="helper"></span>
       <img class="logo" height={100} width={'auto'} src={siteLogo}></img>
 
-      <div class="navigation" style={{ display: 'flex', float: 'right', marginTop: '25px' }}>
+      <div class="navigation" style={{ display: 'flex', float: 'right', marginTop: '20px' }}>
         {/* Navigation Menu */}
         <nav>
           <ul style={{ display: "flex", flex: 1 }}>
