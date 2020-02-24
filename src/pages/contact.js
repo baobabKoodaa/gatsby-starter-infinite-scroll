@@ -1,142 +1,88 @@
 import React from "react"
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import { Location } from '@reach/router'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Container from '@material-ui/core/Container';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+
+import TextField from '@material-ui/core/TextField';
+import { FaComment, FaPhoneSquare, FaEnvelope, FaUser } from 'react-icons/fa'
 
 const ContactPage = (props) => (
     <Layout>
         <div class="page">
-            <h1>Contact Us</h1>
-            <div>
-                <form class="form" name="contact" method="POST" netlify>
-                    <p>
-                        <label>Name: <input type="text" name="name" /></label>
-                    </p>
-                    <p>
-                        <label>Email: <input type="email" name="email" /></label>
-                    </p>
-                    <p>
-                        <label>Phone/WhatsApp: <input type="email" name="email" /></label>
-                    </p>
-                    <p>
-                        <label>Message: <textarea name="message"></textarea></label>
-                    </p>
-                    <p>
-                        <button type="submit">Send</button>
-                    </p>
-                </form>
-            </div>
+
+            <Container maxWidth="sm">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! For media inquiries you can also email us at <a href="mailto:holacabomx@gmail.com">holacabomx@gmail.com</a>.</p>
+                <div class="form">
+                    <form name="contact" method="POST" netlify>
+                        {/* Name */}
+                        <Grid item xs={12}>
+                            <FormControl class="field">
+                                <Input
+                                    id="name" aria-describedby="name"
+                                    label="Name" name="name" type="text" fullWidth
+                                    placeholder="Who are you?"
+                                    required
+                                    startAdornment={<InputAdornment position="start"><FaUser style={{ color: '#D8D8D8' }} /></InputAdornment>}
+                                />
+                            </FormControl>
+                        </Grid>
+
+                        {/* Email */}
+                        <Grid item>
+                            <FormControl class="field">
+                                <Input
+                                    id="email" aria-describedby="email"
+                                    label="Email" name="email" type="email" fullWidth
+                                    placeholder="Your email address"
+                                    required
+                                    startAdornment={<InputAdornment position="start"><FaEnvelope style={{ color: '#D8D8D8' }} /></InputAdornment>}
+                                />
+                            </FormControl>
+                        </Grid>
+
+                        {/* Phone / WhatsApp */}
+                        <Grid item>
+                            <FormControl class="field">
+                                <Input
+                                    id="phone" aria-describedby="phone"
+                                    label="Phone" name="phone" type="tel" fullWidth
+                                    placeholder="Phone / WhatsApp"
+                                    startAdornment={<InputAdornment position="start"><FaPhoneSquare style={{ color: '#D8D8D8' }} /></InputAdornment>}
+                                />
+                            </FormControl>
+                        </Grid>
+
+                        {/* Message */}
+                        <Grid item>
+                            <FormControl class="field">
+                                <Input
+                                    id="message" aria-describedby="message"
+                                    label="Message" name="message" multiline fullWidth
+                                    rows={6}
+                                    placeholder="How can we help you?"
+                                    required
+                                    startAdornment={<InputAdornment position="start"><FaComment style={{ color: '#D8D8D8' }} /></InputAdornment>}
+                                />
+                            </FormControl>
+                        </Grid>
+
+                        <Grid item>
+                            <button type="submit">Send</button>
+                        </Grid>
+                    </form>
+                </div>
+            </Container>
         </div>
     </Layout>
 )
 
 export default ContactPage
-
-
-// import React from 'react';
-// import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import Link from '@material-ui/core/Link';
-// import Grid from '@material-ui/core/Grid';
-// import Box from '@material-ui/core/Box';
-// // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-// import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
-// import Container from '@material-ui/core/Container';
-
-// const useStyles = makeStyles(theme => ({
-//     paper: {
-//         // marginTop: theme.spacing(8),
-//         display: 'flex',
-//         flexDirection: 'column',
-//         alignItems: 'center',
-//     },
-//     avatar: {
-//         margin: theme.spacing(1),
-//         backgroundColor: theme.palette.secondary.main,
-//     },
-//     form: {
-//         width: '100%', // Fix IE 11 issue.
-//         marginTop: theme.spacing(3),
-//     },
-//     submit: {
-//         margin: theme.spacing(3, 0, 2),
-//     },
-// }));
-
-// export default function ContactPage() {
-//     const classes = useStyles();
-
-//     return (
-//         <Container maxWidth="xs">
-//             {/* <CssBaseline /> */}
-//             <div className={classes.paper}>
-//                 <Avatar className={classes.avatar}>
-//                     {/* <LockOutlinedIcon /> */}
-//                 </Avatar>
-//                 <Typography component="h1" variant="h5">
-//                     Contact Us
-//         </Typography>
-//                 <form className={classes.form} noValidate>
-//                     <Grid container spacing={2}>
-//                         <Grid item xs={12}>
-//                             <TextField
-//                                 name="name"
-//                                 variant="outlined"
-//                                 required
-//                                 fullWidth
-//                                 id="name"
-//                                 label="Name"
-//                                 autoFocus
-//                             />
-//                         </Grid>
-//                         <Grid item xs={12}>
-//                             <TextField
-//                                 variant="outlined"
-//                                 required
-//                                 fullWidth
-//                                 id="email"
-//                                 label="Email"
-//                                 name="email"
-//                                 autoComplete="email"
-//                             />
-//                         </Grid>
-//                         <Grid item xs={12}>
-//                             <TextField
-//                                 variant="outlined"
-//                                 required
-//                                 fullWidth
-//                                 name="password"
-//                                 label="Password"
-//                                 id="password"
-//                             />
-//                         </Grid>
-//                         <Grid item xs={12}>
-//                             <FormControlLabel
-//                                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-//                                 label="I want to receive deals, marketing promotions and updates via email."
-//                             />
-//                         </Grid>
-//                     </Grid>
-//                     <Button
-//                         type="submit"
-//                         fullWidth
-//                         variant="contained"
-//                         color="primary"
-//                         className={classes.submit}
-//                     >
-//                         Send
-//           </Button>
-//                     <Grid container justify="flex-end">
-//                         <Grid item>
-//                         </Grid>
-//                     </Grid>
-//                 </form>
-//             </div>
-//         </Container>
-//     );
-// }

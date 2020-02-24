@@ -662,9 +662,38 @@ pre tt:after {
 
 .page {
   min-height: 800px;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
+  text-align: center;
+}
+
+.MuiFormControl-root {
+  margin: 20px;
 }
 
 .form {
-  padding: 20px;
+  margin: 0 auto;
+}
+
+.field {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+button {
+  transition: transform 0.2s cubic-bezier(.64,.09,.08,1), box-shadow 0.2s cubic-bezier(.64,.09,.08,1);
+  border: none;
+  background: #0366D6;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 8px;
+  margin-top: 20px;
+  width: 100%;
+  color: white;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+}
+button:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 5px 6px 0 rgba(0,0,0,0.2);
 }
