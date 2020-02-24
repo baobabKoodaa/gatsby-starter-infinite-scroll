@@ -17,7 +17,7 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
     >
       {/* Brand Logo */}
       <span class="helper"></span>
-      <img class="logo" height={100} width={'auto'} src={siteLogo}></img>
+      <a href="/"><img class="logo" height={100} width={'auto'} src={siteLogo}></img></a>
 
       <div class="navigation">
         {/* Navigation Menu */}
