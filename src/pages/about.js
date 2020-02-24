@@ -18,13 +18,20 @@ const AboutPage = (props) => (
                 <a href="https://instagram.com/holacabo">Follow us on Instagram</a> as we share our first-hand view of the best:
             </p>
 
+            <p>•••</p>
             <ul style={{ listStyle: 'none' }}>
-                <li>🌮 Restaurants in town, for all occassions</li>
-                <li>🍹Happy hours, drink specials, and deals</li>
-                <li>📅 Upcoming events, concerts, spots for live music</li>
-                <li>🏖️ Beautiful beaches, boat rides, fishing, whale watching and more</li>
-                <li>💎 Hidden gems, prop tips, and anything else we feel worthy of sharing!</li>
+                <li>Restaurants in town, for all occassions</li>
+                <li>Happy hours, drink specials, and deals</li>
+                <li>Upcoming events, concerts, spots for live music</li>
+                <li>Beautiful beaches, boat rides, fishing, whale watching and more</li>
+                <li>Hidden gems, prop tips, and anything else we feel worthy of sharing!</li>
             </ul>
+            <p>•••</p>
+
+            <p>
+                Looking to have your business or offering featured on Hola Cabo? <a href="/contact">Say hola</a>, we'd love to hear from you!
+            </p>
+
             <p>Hasta luego,</p>
             <p>The Hola Cabo Team</p>
         </div>

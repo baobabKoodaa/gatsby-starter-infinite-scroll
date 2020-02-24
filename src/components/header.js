@@ -5,12 +5,7 @@ import { Link } from "gatsby"
 import DynamicIcon from './dynamicIcon';
 
 const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
-  <header
-    style={{
-      background: `white`,
-      minHeight: `100px`,
-    }}
-  >
+  <header class="header">
     <div
       style={{
         padding: `0.5rem`,
@@ -24,7 +19,7 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
       <span class="helper"></span>
       <img class="logo" height={100} width={'auto'} src={siteLogo}></img>
 
-      <div class="navigation" style={{ display: 'flex', float: 'right', marginTop: '20px' }}>
+      <div class="navigation">
         {/* Navigation Menu */}
         <nav>
           <ul style={{ display: "flex", flex: 1 }}>

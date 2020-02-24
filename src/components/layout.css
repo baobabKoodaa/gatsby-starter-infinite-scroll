@@ -633,31 +633,34 @@ pre tt:after {
 /*
 *
 *
-* CUSTOM STYLES
+* CUSTOM STYLES: DEFAULT
 *
+* No modifications should be necessary for any styles above.
 *
 */
 
-/* Brand Styles */
+
+.header {
+  background: white;
+  height: 120px;
+}
 
 .logo { 
   margin: 0 auto; 
   float: left;
+  padding: 5px;
 }
 
-.helper {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
+/* Menu Bar Navigation */
+
+.navigation { 
+  margin : 0 auto; 
+  display: flex;
+  float: right;
+  margin-top: 20px;
 }
 
-@media only screen and (max-width: 600px) {
-  .logo {
-    vertical-align: middle;
-    float: none;
-  }
-}
-.navigation { margin : 0 auto; }
+/* Navigation Items  */
 
 .navigationItem {
   list-style-type: none;
@@ -673,6 +676,8 @@ pre tt:after {
   color: #78AD5A;
 }
 
+/* Page Layouts  */
+
 .page {
   min-height: 800px;
   max-width: 600px;
@@ -680,6 +685,8 @@ pre tt:after {
   padding: 20px;
   text-align: center;
 }
+
+/* Forms  */
 
 .MuiFormControl-root {
   margin: 20px;
@@ -693,6 +700,8 @@ pre tt:after {
   margin-bottom: 40px;
   width: 100%;
 }
+
+/* Buttons  */
 
 button {
   transition: transform 0.2s cubic-bezier(.64,.09,.08,1), box-shadow 0.2s cubic-bezier(.64,.09,.08,1);
@@ -709,4 +718,38 @@ button {
 button:hover { 
   transform: translateY(-2px);
   box-shadow: 0 5px 6px 0 rgba(0,0,0,0.2);
+}
+
+/* Utilities */
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+
+/*
+*
+*
+* CUSTOM STYLES: MOBILE
+*
+*
+*/
+
+
+
+/* Phone */
+@media only screen and (max-width: 480px) {
+  .header {
+    height: 180px;
+  }
+  .logo {
+    vertical-align: middle;
+    float: none;
+  }
+  .navigation {
+    vertical-align: middle;
+    float: none;
+  }
 }
