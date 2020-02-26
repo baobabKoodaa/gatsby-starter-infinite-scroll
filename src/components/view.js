@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Pagination from "./pagination.js"
 import { InfiniteScroll } from "./infiniteScroll.js"
 import { FaCog } from "react-icons/fa"
@@ -45,19 +44,6 @@ class View extends React.Component {
                     <Grid globalState={g} pageContext={pageContext} />
 
                 </InfiniteScroll>
-
-                {/* Notification for demo purposes. */}
-                {g.useInfiniteScroll && g.cursor !== 0 && !g.hasMore(pageContext) && (
-                    <div style={{ paddingTop: "40px" }}>
-                        <h4>
-                            <center>
-                                Congrats! You scrolled through all items starting from page
-                            {" " + pageContext.currentPage}.
-                            Go to page <Link to="/">one</Link>?
-                        </center>
-                        </h4>
-                    </div>
-                )}
 
                 {/* Loading spinner. */}
                 {(g.cursor === 0 || g.hasMore(pageContext)) && (

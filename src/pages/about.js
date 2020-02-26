@@ -1,14 +1,13 @@
 import React from "react"
-import { Location } from '@reach/router'
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+// import SEO from "../components/seo"
 
 const AboutPage = (props) => (
     <Layout>
         <div class="page">
             <h1>About</h1>
 
-            <p>Say 👋 to the best of Los Cabos.</p>
+            <p>Say <span role="img" aria-label="Wave">👋</span> to the best of Los Cabos.</p>
 
             <p>
                 Whether you are visiting Cabo for the first time, a seasonal regular or lifetime local, Hola Cabo is here to share everything there is to know about the hidden gems of the Baja Sur.
