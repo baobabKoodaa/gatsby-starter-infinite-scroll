@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 import Container from '@material-ui/core/Container';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -11,8 +11,8 @@ import { FaComment, FaPhoneSquare, FaEnvelope, FaUser } from 'react-icons/fa'
 // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 const ContactPage = (props) => (
     <Layout>
+        <SEO title="Contact Us | Hola Cabo" description="Please give us a shout, our team at Hola Cabo would love to hear from you! Food • Cocktails • Lifestyle • Events" />
         <div class="page">
-
             <Container maxWidth="sm">
                 <h1>Contact Us</h1>
                 <p>We'd love to hear from you! For media inquiries you can also email us at <a href="mailto:holacabomx@gmail.com">holacabomx@gmail.com</a>.</p>

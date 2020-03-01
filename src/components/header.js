@@ -54,6 +54,7 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
 
         </nav>
       </div>
+      {/* <h6>food • cocktails • lifestyle • events</h6> */}
     </div>
 
   </header>

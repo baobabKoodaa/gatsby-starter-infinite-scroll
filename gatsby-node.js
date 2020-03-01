@@ -8,24 +8,12 @@ const axios = require('axios');
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    /* 
-     * There are a few local images in this repo to show you how to fetch images with GraphQL.
-     * In order to keep the repo small, the rest of the images are fetched from Unsplash by the client's
-     * browser. Their URLs are stored in a text file. You don't want to fetch images like that in production.
-     */
-    // var rawRemoteUrls = JSON.parse(fs.readFileSync('content/images/remote_image_urls.json', 'utf8'));
-    // const remoteImages = rawRemoteUrls.map(url => {
-    //     const thumbnailResizeParams = '?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop'
-    //     const largeResizeParams = '?w=1200&q=90'
-    //     return {
-    //         "l": url + largeResizeParams,
-    //         "s": url + thumbnailResizeParams
-    //     }
-    // })
+
+    // Instagram API
+    const token = 'IGQVJYd1lfT3kzQkVqWHdzTk9DVEVVS2s1SHRSYlczVE5FOWpwZAnJlSDVzYl9WcHhJY25Jc0MtMklySHVELW1jYXFEVE9iMmpCS1FHc21jWjg2dlExNEdIOWxZAV2JmX0tGeDhXMzNB';
 
     // Fetch async data for page creation.
-    const remoteImages = await getData();
-    console.log('remoteImages===>', remoteImages);
+    const remoteImages = await getData(token);
 
     /* In production you should fetch your images with GraphQL like this: */
     return graphql(`
@@ -51,18 +39,15 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         }
     `).then(result => {
-        if (result.errors) {
-            throw result.errors
-        }
+        // GUARD: Throw error if results in errors
+        if (result.errors) { throw result.errors }
 
-        const localImages = result.data.localImages.edges.map(edge => {
-            return {
-                "l": edge.node.childImageSharp.fluid.originalImg,
-                "s": edge.node.childImageSharp.fixed.src
-            }
-        })
-
-        // const images = [...localImages, ...remoteImages]
+        // const localImages = result.data.localImages.edges.map(edge => {
+        //     return {
+        //         "l": edge.node.childImageSharp.fluid.originalImg,
+        //         "s": edge.node.childImageSharp.fixed.src
+        //     }
+        // })
         const images = [...remoteImages];
 
         /* Gatsby will use this template to render the paginated pages (including the initial page for infinite scroll). */
@@ -96,15 +81,11 @@ exports.createPages = async ({ graphql, actions }) => {
             createPage(pageData);
         }
         console.log(`\nCreated ${countPages} pages of paginated content.`)
-
-
     })
 }
 
-async function getData() {
+async function getData(token) {
     const num_photos = 20;
-    // Instagram API
-    const token = 'IGQVJYd1lfT3kzQkVqWHdzTk9DVEVVS2s1SHRSYlczVE5FOWpwZAnJlSDVzYl9WcHhJY25Jc0MtMklySHVELW1jYXFEVE9iMmpCS1FHc21jWjg2dlExNEdIOWxZAV2JmX0tGeDhXMzNB';
     const response = await axios.get('https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=' + token + '&count=' + num_photos);
     const responseData = await response.data.data;
     const images = await responseData.map(itemJSON => {

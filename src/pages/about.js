@@ -1,9 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 
 const AboutPage = (props) => (
     <Layout>
+        <SEO title="About Us | Hola Cabo" description="Learn why we love Cabo and our mission in sharing the best of the Baja with you." />
         <div class="page">
             <h1>About</h1>
 
