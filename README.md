@@ -7,6 +7,7 @@
   Gatsby Starter Infinite Scroll
 </h1>
 
+
 This is a Gatsby starter intended for developers who need **infinite scroll** or **pagination** in their Gatsby project. 
 
 Try out this live demo with 10k photos »»» [https://gatsby-starter-infinite-scroll.baobab.fi](https://gatsby-starter-infinite-scroll.baobab.fi)
