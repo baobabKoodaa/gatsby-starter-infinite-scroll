@@ -1,0 +1,1 @@
+echo "Build bump" >> README.md && git commit -am "Build bump for deployment." && git push origin master
