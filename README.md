@@ -49,3 +49,4 @@ If you run into any difficulty, I will be happy to help.
 - Loading spinner uses icon from FontAwesome.
 
 I would love to see what you build with this. You can [drop me a message](https://blog.baobab.fi/contact) or star this repo.
+Build bump
