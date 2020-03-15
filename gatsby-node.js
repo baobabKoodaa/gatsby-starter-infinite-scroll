@@ -86,17 +86,42 @@ exports.createPages = async ({ graphql, actions }) => {
 
 async function getData(token) {
     const num_photos = 20;
-    const response = await axios.get('https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=' + token + '&count=' + num_photos);
+    const response = await axios.get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&access_token=' + token + '&count=' + num_photos);
     const responseData = await response.data.data;
     const images = await responseData.map(itemJSON => {
-        return {
-            'id': itemJSON.id,
-            'type': itemJSON.media_type,
-            'l': itemJSON.media_url,
-            's': itemJSON.media_url,
-        }
+        // const previous = getPrevious(responseData, index - 1);
+        // const next = getNext(responseData, index + 1);
+        // let response = serialize(itemJSON);
+        // response['previousItem'] = serialize(previous);;
+        // response['nextItem'] = serialize(next);;
+        return serialize(itemJSON);;
     });
     return images;
+}
+
+// function getNext(responseData, index) {
+//     if (typeof responseData[index] === 'undefined') {
+//         return null;
+//     }
+//     return responseData[index];
+// }
+
+// function getPrevious(responseData, index) {
+//     if (typeof responseData[index] === 'undefined') {
+//         return null;
+//     }
+//     return responseData[index];
+// }
+
+function serialize(itemJSON) {
+    return {
+        'id': itemJSON.id,
+        'caption': itemJSON.caption,
+        'link': itemJSON.permalink,
+        'type': itemJSON.media_type,
+        'l': itemJSON.media_url,
+        's': itemJSON.media_url,
+    };
 }
 
 function createJSON(pageData) {

@@ -723,6 +723,42 @@ button:hover {
   vertical-align: middle;
 }
 
+.viewItemOuterContainer {
+  margin: 0 auto;
+  text-align: center;
+  width: 80vw;
+  min-height: 40vw;
+  margin-top: 2vw;
+  margin-bottom: 8vw;
+}
+
+.viewItemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+}
+
+.viewItem {
+  text-align: left;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 5vw;
+}
+.viewItemCaption {
+  white-space: pre-wrap;
+  max-width: 40vw;
+}
+.viewItemArrowPrevious {
+  position: absolute;
+  top: 50%;
+  left: 2vw;
+}
+.viewItemArrowNext {
+  position: absolute;
+  top: 50%;
+  right: 2vw;
+}
+
 /*
 *
 *

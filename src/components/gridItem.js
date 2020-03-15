@@ -8,7 +8,7 @@ const GridItem = props => {
             <div className="img-container" key={props.index}>
 
                 {props.item && props.js && (
-                    <Link to={`/viewItem?id=${props.item.l}`}>
+                    <Link to={`/viewItem?id=${props.item.l}`} state={{ caption: props.item.caption, link: props.item.link }}>
                         <img src={props.item.s} alt="" title="" />
                     </Link>
                 )}
