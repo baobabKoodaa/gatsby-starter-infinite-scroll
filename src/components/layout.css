@@ -7,6 +7,7 @@ html {
 body {
   background-color: white;
   margin: 0;
+  height:100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,6 +24,9 @@ nav,
 section,
 summary {
   display: block;
+}
+main {
+  padding-bottom: 100px;
 }
 audio,
 canvas,
@@ -724,12 +728,14 @@ button:hover {
 }
 
 .viewItemOuterContainer {
+  min-height:100%;
+  position:relative;
   margin: 0 auto;
+  display: block;
+  overflow: auto;
   text-align: center;
-  width: 80vw;
-  min-height: 40vw;
-  margin-top: 2vw;
-  margin-bottom: 8vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 .viewItemContainer {
@@ -743,6 +749,10 @@ button:hover {
   vertical-align: middle;
   display: inline-block;
   margin-left: 5vw;
+}
+.viewItemImage {
+  max-width: 60vw;
+  max-height: 60vh;
 }
 .viewItemCaption {
   white-space: pre-wrap;
@@ -779,5 +789,22 @@ button:hover {
   .navigation {
     vertical-align: middle;
     float: none;
+  }
+  .viewItemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    float: none;
+  }
+  .viewItemCaption {
+    white-space: pre-wrap;
+    max-width: 90vw;
+  }
+  .viewItem {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .viewItemImage {
+    max-width: 90vw;
+    max-height: 90vh;
   }
 }

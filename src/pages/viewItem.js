@@ -42,10 +42,7 @@ const ViewPostDetailPage = (props) => (
                       src={url}
                       alt="Larger version"
                       title="Instagram Post from Hola Cabo"
-                      style={{
-                        maxWidth: "70vw",
-                        maxHeight: "60vh"
-                      }}
+                      class="viewItemImage"
                     />
                   </a>
                 </div>
