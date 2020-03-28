@@ -4,13 +4,8 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby Starter Infinite Scroll
+Hola Cabo
 </h1>
-
-
-This is a Gatsby starter intended for developers who need **infinite scroll** or **pagination** in their Gatsby project. 
-
-Try out this live demo with 10k photos »»» [https://gatsby-starter-infinite-scroll.baobab.fi](https://gatsby-starter-infinite-scroll.baobab.fi)
 
 ## :zap: Get started
 
@@ -26,8 +21,6 @@ If you want to understand how this works, I recommend reading the code in the fo
 » [components/view.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/view.js)  
 » [components/globalState.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/globalState.js)
 
-If you run into any difficulty, I will be happy to help.
-
 ## 🚀 To infinity and beyond!
 
 - The default behavior is to use infinite scroll, but **fallback to pagination** if JS is disabled or an error occurs. Additionally, the demo has a **toggle** so you can test both modes without disabling JS in your browser.
@@ -42,11 +35,7 @@ If you run into any difficulty, I will be happy to help.
 
 ## 🎓 Attribution
 
-- Photos are from [Unsplash](https://unsplash.com). Unfortunately I couldn't get photographer attribution, because their main API is rate limited, and the non limited API (source.unsplash.com) only gave me photos. If you can help me get photographer attribution, that would be awesome!
 - Infinite scroll uses some code from Jared Palmer's [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll).
 - Image layout CSS Grid is modified from work by [LekoArts](https://www.lekoarts.de/).
 - Traffic lights CSS graphics are modified from work by Azik Samarkandiy.
 - Loading spinner uses icon from FontAwesome.
-
-I would love to see what you build with this. You can [drop me a message](https://blog.baobab.fi/contact) or star this repo.
-Build bump
