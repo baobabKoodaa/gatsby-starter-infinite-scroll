@@ -1,9 +1,9 @@
 import React from "react"
 import { Location } from '@reach/router'
 import Layout from "../components/layout"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import SEO from "../components/seo"
-import DynamicIcon from '../components/dynamicIcon';
+// import DynamicIcon from '../components/dynamicIcon';
 
 const ViewPostDetailPage = (props) => (
   <Layout>

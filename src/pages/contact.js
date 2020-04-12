@@ -15,7 +15,7 @@ const ContactPage = (props) => (
         <div class="page">
             <Container maxWidth="sm">
                 <h1>Contact Us</h1>
-                <p>We'd love to hear from you! For media inquiries you can also email us at <a href="mailto:holacabomx@gmail.com">holacabomx@gmail.com</a>.</p>
+                <p>We would love to hear from you! For features or media inquiries you can also email us at <a href="mailto:holacabomx@gmail.com">holacabomx@gmail.com</a>.</p>
                 <div class="form">
                     <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
                         {/* Name */}

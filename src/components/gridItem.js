@@ -92,7 +92,7 @@ const GridItem = props => {
                         display: block;
                         position: absolute;
                         width: 100%;
-                        height: auto;
+                        height: 100%;
                         margin: 0 !important;
                         transition: 0.2s ease-in-out;
                         -webkit-transition: .2s ease-in-out;
