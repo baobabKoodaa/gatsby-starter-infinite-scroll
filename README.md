@@ -2,7 +2,6 @@
 Hola Cabo
 </h1>
 
-
 ## :zap: Get started
 
 Fork and `npm install`. Run in dev mode with `gatsby develop`.
