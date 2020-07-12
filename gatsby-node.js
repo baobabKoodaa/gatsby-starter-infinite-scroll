@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
     // Instagram API
-    const token = 'IGQVJWbXJDOWlsdHI0dGF3MHZAQZA1cwWDBOa2U5cUp0WWpXV0ZAFUXdzQmUwcG9ZALTJqTXVRb3FwdXZAKRUdMbGVkeXk4WFdNejRYaDNoOHM4bkxydWdsRnFLbFpJWnBud19Ba0VqV19BQ1NQY09aMTl1QQZDZD';
+    const token = 'IGQVJWWTByeGRwem92Y3NJckloWXp2R0RYR3lQaHlrajRiZAmxWeUE2VEZADUWk5cVRHTk5vbWVwaUxwTF9jR0JaMThKRzcwc20yRlgtUDRObzlvMDVuRGgyUWtpcW5ISHJyRkFxUEpDWDZA2V2pPX0dtYQZDZD';
 
     // Fetch async data for page creation.
     const remoteImages = await getData(token);
