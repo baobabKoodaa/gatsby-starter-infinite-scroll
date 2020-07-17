@@ -33,8 +33,8 @@ class TrafficLight extends React.Component {
         return (
             <React.Fragment>
                 <div className="trafficlight" title="Toggle between Infinite Scroll and Pagination">
-                    <button aria-label="Pagination" className="red" onClick={() => this.onClick(false)}/>
-                    <button aria-label="Infinite Scroll" className="green" onClick={() => this.onClick(true)}/>
+                    <div className="red" onClick={() => this.onClick(false)}></div>
+                    <div className="green" onClick={() => this.onClick(true)}></div>
                 </div>
                 <style jsx>{`  
                 .trafficlight{
@@ -77,7 +77,6 @@ class TrafficLight extends React.Component {
                     0 0 10px red;
                     opacity: ${redOpacity};
                     cursor: pointer;
-                    outline:none;
                 }
                 
                 .green{
@@ -96,12 +95,11 @@ class TrafficLight extends React.Component {
                     0 0 10px lime;
                     cursor: pointer;
                     opacity: ${greenOpacity};
-                    outline:none;
                 }
                 `}</style>
             </React.Fragment>
         )
     }
-}
+};
 
 export default TrafficLight;
