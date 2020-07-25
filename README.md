@@ -1,6 +1,6 @@
 <h1 align="center">
 
-v1.0.5
+v1.0.6
 
 Hola Cabo
 
