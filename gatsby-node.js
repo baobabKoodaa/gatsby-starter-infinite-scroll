@@ -85,7 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 
 async function getData(token) {
-    const num_photos = 20;
+    const num_photos = 100;
     const response = await axios.get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&access_token=' + token + '&count=' + num_photos);
     const responseData = await response.data.data;
     const images = await responseData.map(itemJSON => {
