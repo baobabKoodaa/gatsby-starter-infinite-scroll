@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
     // Instagram API
-    const token = 'IGQVJXWTBqNEUySGVLUDA0bWVwa1g5aTR6b3R3THk1WWpITlZAQcmR1SGlVVzBQLXBibUZArT1lsRjVUODVvRFc2VWF6THI5ZAG1mTVo2MGs1ZAHdKZAFZA0emVhSEdpZAGZA2Wkt5Q2RLX2NuWXd1ZATVzVzZAqegZDZD';
+    const token = 'IGQVJVbkFnaFJTS2VmTmNWS003OXNKenhLWnpYU0R1VTZAmYk80MUVqa2VvM21lUXFkWXA4VFhhUHQ1S01zcnZA4S3ZAwT3hJeGJSREZA2Wk1SZAVkteE1tcjNtQWtXQXBDV1REWWxQWkRYaG42TXRBTksxUgZDZD';
 
     // Fetch async data for page creation.
     const remoteImages = await getData(token);
@@ -54,7 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
         const paginatedPageTemplate = path.resolve(`src/templates/paginatedPageTemplate.js`)
 
         /* Iterate needed pages and create them. */
-        const countImagesPerPage = 20
+        const countImagesPerPage = 50
         const countPages = Math.ceil(images.length / countImagesPerPage)
         for (var currentPage = 1; currentPage <= countPages; currentPage++) {
             const pathSuffix = (currentPage > 1 ? currentPage : "") /* To create paths "/", "/2", "/3", ... */
