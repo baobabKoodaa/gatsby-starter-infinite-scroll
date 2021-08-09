@@ -1,5 +1,5 @@
 html {
-  background-color: #78AD5A;
+  background-color: #58949E;
   font-family: Open Sans;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -677,7 +677,7 @@ pre tt:after {
   color: black;
 }
 .navigationItem a:hover { 
-  color: #78AD5A;
+  color: #58949E;
 }
 
 /* Page Layouts  */
