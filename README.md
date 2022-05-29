@@ -20,6 +20,16 @@ If you want to understand how this works, I recommend reading the code in the fo
 » [components/view.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/view.js)  
 » [components/globalState.js](https://github.com/baobabKoodaa/gatsby-starter-infinite-scroll/blob/master/src/components/globalState.js)
 
+## Helpful Developer Tools and Resources
+
+https://fonts.google.com/
+
+https://fontsource.org/fonts/caveat
+
+https://www.sanity.io/manage/personal/project/vnwhw2z2
+
+https://www.sanity.io/docs/cli
+
 ## 🚀 To infinity and beyond!
 
 - The default behavior is to use infinite scroll, but **fallback to pagination** if JS is disabled or an error occurs. Additionally, the demo has a **toggle** so you can test both modes without disabling JS in your browser.
