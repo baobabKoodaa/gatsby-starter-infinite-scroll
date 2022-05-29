@@ -642,17 +642,41 @@ pre tt:after {
 * No modifications should be necessary for any styles above.
 *
 */
+h1 {
+  font-family: 'Heiti SC';
+  font-size: 1.75em;
+}
+h2 {
+  font-size: 1.25em;
+  font-weight: 200;
+}
 
+/* Menu Navigation Header, Logo */
 
 .header {
   background: white;
   height: 120px;
 }
-
-.logo { 
-  margin: 0 auto; 
+.headerLogoTitleContainer {
   float: left;
+  display: flex;
+  height: 100px;
+  margin-top: 10px;
+}
+.logo {
   padding: 5px;
+  margin-right: 10px;
+}
+.title {
+  width: 50%;
+  margin-top: 10px;
+}
+.subtitle {
+  width: 50%;
+  margin-top: -10%;
+}
+.subtitle {
+   font-family: "Caveat", cursive;
 }
 
 /* Menu Bar Navigation */
