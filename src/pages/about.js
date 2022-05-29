@@ -20,7 +20,7 @@ const AboutPage = (props) => (
 
             <p>•••</p>
             <ul style={{ listStyle: 'none' }}>
-                <li>Restaurants in town, for all occassions</li>
+                <li>Restaurants in town, for all occasions</li>
                 <li>Happy hours, drink specials, and deals</li>
                 <li>Upcoming events, concerts, spots for live music</li>
                 <li>Beautiful beaches, boat rides, fishing, whale watching and more</li>

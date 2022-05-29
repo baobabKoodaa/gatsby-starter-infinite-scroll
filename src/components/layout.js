@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import 'typeface-open-sans/index.css'
+import '@fontsource/caveat'
 import "./layout.css"
 
 class Layout extends React.Component {

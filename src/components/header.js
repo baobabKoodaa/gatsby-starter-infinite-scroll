@@ -4,6 +4,13 @@ import React from "react"
 import { Link } from "gatsby"
 import DynamicIcon from './dynamicIcon';
 
+function onMouseOver(event) {
+  event.currentTarget.src = "https://nightlife2-webapp.s3.amazonaws.com/HolaCabo%20Logo%20Final%201024-Hover.png"
+}
+function onMouseOut(event) {
+  event.currentTarget.src = "https://nightlife2-webapp.s3.amazonaws.com/HolaCabo%20Logo%20Final%201024.png"
+}
+
 const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
   <header className="header">
     <div
@@ -17,9 +24,15 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
     >
       {/* Brand Logo */}
       <span className="helper"></span>
-      <a href="/"><img alt="Hola Cabo Logo" className="logo" height={100} width={'auto'} src={siteLogo}></img></a>
-
+      <div className="headerLogoTitleContainer">
+        <a href="/"><img alt="Hola Cabo Logo" className="logo" height={100} width={'auto'} src={siteLogo} onMouseOver={onMouseOver} onMouseOut={onMouseOut} /></a>
+        <div class="row">
+          <h1 className="title">Hola Cabo</h1>
+          <h2 className="subtitle">Your locals guide to Los Cabos</h2>
+        </div>
+      </div>
       <div className="navigation">
+
         {/* Navigation Menu */}
         <nav>
           <ul style={{ display: "flex", flex: 1 }}>
@@ -37,18 +50,18 @@ const Header = ({ siteTitle, siteLogo, menuLinks, socialLinks }) => (
               </li>
             ))}
             {socialLinks.map(link =>
-              (
-                <li
-                  key={link.name}
-                  className="navigationItem"
+            (
+              <li
+                key={link.name}
+                className="navigationItem"
+              >
+                <a
+                  href={link.link}
                 >
-                  <a
-                    href={link.link}
-                  >
-                    <DynamicIcon tag={link.icon} />
-                  </a>
-                </li>
-              ))}
+                  <DynamicIcon tag={link.icon} />
+                </a>
+              </li>
+            ))}
 
           </ul>
 
