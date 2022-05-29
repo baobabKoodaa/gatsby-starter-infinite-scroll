@@ -12,6 +12,10 @@ module.exports = {
         link: '/',
       },
       {
+        name: 'features',
+        link: '/features',
+      },
+      {
         name: 'about',
         link: '/about'
       },
@@ -81,6 +85,14 @@ module.exports = {
         // Setting this parameter is optional
         anonymize: true,
       },
-    }
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: 'production',
+        token: process.env.SANITY_TOKEN,
+      },
+    },
   ],
 }

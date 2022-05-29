@@ -653,6 +653,7 @@ pre tt:after {
   margin: 0 auto; 
   float: left;
   padding: 5px;
+  min-height: 100px;
 }
 
 /* Menu Bar Navigation */

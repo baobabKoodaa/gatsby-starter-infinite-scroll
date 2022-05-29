@@ -19,6 +19,7 @@
     "gatsby-plugin-styled-jsx-postcss": "^2.0.2",
     "gatsby-plugin-typescript": "^2.1.7",
     "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-source-sanity": "^5.0.6",
     "gatsby-transformer-sharp": "^2.2.14",
     "lodash.throttle": "^4.1.1",
     "node-fetch": "^2.6.0",
