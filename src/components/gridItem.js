@@ -1,12 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const GridItem = props => {
-
+const GridItem = (props) => {
     return (
         <React.Fragment>
             <div className="img-container" key={props.index}>
-
                 {props.item && props.js && (
                     <Link to={`/viewItem?id=${props.item.l}`}>
                         <img src={props.item.s} alt="" title="" />
@@ -17,14 +15,13 @@ const GridItem = props => {
                         <img src={props.item.s} alt="" title="" />
                     </a>
                 )}
-                
             </div>
             <style jsx>
                 {`
                     .img-container {
                         position: relative;
-                        width:100%;
-                        background:#EEE;
+                        width: 100%;
+                        background: #eee;
                         border-radius: 5px;
                         border: 1px solid ghostwhite;
                         overflow: hidden;
@@ -32,7 +29,7 @@ const GridItem = props => {
                     }
 
                     .img-container::before {
-                        content: '';
+                        content: "";
                         display: block;
                         margin-top: 100%;
                         z-index: 1;
@@ -49,11 +46,11 @@ const GridItem = props => {
                         border: 1px solid gray;
                         transition: 0.2s ease-in-out;
                         z-index: 2;
+                    }
 
-                        :hover {
-                            opacity: 0.4;
-                            transform: scale(1.1);
-                        }
+                    .img-container img:hover {
+                        opacity: 0.4;
+                        transform: scale(1.1);
                     }
                 `}
             </style>

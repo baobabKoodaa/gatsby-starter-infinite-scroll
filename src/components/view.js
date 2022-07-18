@@ -9,7 +9,6 @@ import TrafficLight from "./trafficlight.js"
 
 /** View for "home" page with infinite scroll and fallback to pagination. */
 class View extends React.Component {
-
     constructor(props) {
         super(props)
         console.log("*** Constructing View ***")
@@ -18,7 +17,7 @@ class View extends React.Component {
             console.log(`View is initializing items according to ${pageKey}.`)
             props.globalState.updateState({
                 [pageKey]: props.pageContext.pageImages,
-                cursor: props.pageContext.currentPage+1
+                cursor: props.pageContext.currentPage + 1,
             })
         }
     }
@@ -29,37 +28,28 @@ class View extends React.Component {
         const paginationData = {
             currentPage: pageContext.currentPage,
             countPages: pageContext.countPages,
-            useInfiniteScroll: g.useInfiniteScroll
+            useInfiniteScroll: g.useInfiniteScroll,
         }
 
-        return(
+        return (
             <>
-
                 {/* Traffic Lights to toggle between Infinite Scroll and Pagination. */}
                 <TrafficLight onClick={g.toggle} green={g.useInfiniteScroll} pageContext={pageContext} />
 
                 {/* Infinite Scroll */}
-                <InfiniteScroll
-                    throttle={150}
-                    threshold={1800}
-                    hasMore={g.hasMore(pageContext)}
-                    onLoadMore={g.loadMore}
-                >
-
+                <InfiniteScroll throttle={150} threshold={1800} hasMore={g.hasMore(pageContext)} onLoadMore={g.loadMore}>
                     {/* Grid given as a child element for Infinite Scroll. */}
                     <Grid globalState={g} pageContext={pageContext} />
-                    
                 </InfiniteScroll>
 
                 {/* Notification for demo purposes. */}
                 {g.useInfiniteScroll && g.cursor !== 0 && !g.hasMore(pageContext) && (
-                    <div style={{ paddingTop: "40px"}}>
+                    <div style={{ paddingTop: "40px" }}>
                         <h4>
-                        <center>
-                            Congrats! You scrolled through all items starting from page
-                            {" "+pageContext.currentPage}.
-                            Go to page <Link to="/">one</Link>?
-                        </center>
+                            <center>
+                                Congrats! You scrolled through all items starting from page
+                                {" " + pageContext.currentPage}. Go to page <Link to="/">one</Link>?
+                            </center>
                         </h4>
                     </div>
                 )}
@@ -67,48 +57,45 @@ class View extends React.Component {
                 {/* Loading spinner. */}
                 {(g.cursor === 0 || g.hasMore(pageContext)) && (
                     <div className="spinner">
-                        <FaCog/>
+                        <FaCog />
                     </div>
                 )}
 
-                {/* Fallback to Pagination for non JS users. */} 
+                {/* Fallback to Pagination for non JS users. */}
                 {g.useInfiniteScroll && (
                     <noscript>
-                        <style> 
-                            {`.spinner { display: none !important; }`}
-                        </style>
+                        <style>{`.spinner { display: none !important; }`}</style>
                         <Pagination paginationData={paginationData} />
-                        <h4><center>Infinite Scroll does not work without JavaScript.</center></h4>
+                        <h4>
+                            <center>Infinite Scroll does not work without JavaScript.</center>
+                        </h4>
                     </noscript>
                 )}
 
                 {/* Fallback to Pagination on toggle (for demo) and also on error. */}
-                {!g.useInfiniteScroll && (
-                    <Pagination paginationData={paginationData} />
-                )}
+                {!g.useInfiniteScroll && <Pagination paginationData={paginationData} />}
 
-                <style jsx>{`
-                    @keyframes spinner {
-                        to {transform: rotate(360deg);}
-                    }
-                    .spinner {
-                        margin-top: 40px;
-                        font-size: 60px;
-                        text-align: center;
-                        display: ${g.useInfiniteScroll ? "block" : "none" };
+                <style jsx>
+                    {`
+                        @keyframes spinner {
+                            to {
+                                transform: rotate(360deg);
+                            }
+                        }
+                        .spinner {
+                            margin-top: 40px;
+                            font-size: 60px;
+                            text-align: center;
+                            display: ${g.useInfiniteScroll ? "block" : "none"};
+                        }
 
-                        :global(svg) {
+                        .spinner :global(svg) {
                             fill: ${theme.color.brand.primaryLight};
                             animation: spinner 3s linear infinite;
                         }
-                        
-                    }
                     `}
                 </style>
-
             </>
-
-
         )
     }
 }
